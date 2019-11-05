@@ -8,13 +8,16 @@ import {
   Text,
   TouchableOpacity,
   View,
+  StatusBar
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
 
+
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
+      
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>

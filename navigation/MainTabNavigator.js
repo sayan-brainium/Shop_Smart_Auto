@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform,StatusBar } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -35,21 +35,24 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const OfferStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Offer: LinksScreen,
+    
   },
+ 
+  
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+OfferStack.navigationOptions = {
+  tabBarLabel: 'Offer',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   ),
 };
 
-LinksStack.path = '';
+OfferStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -69,8 +72,8 @@ SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
   SettingsStack,
+  OfferStack,
 });
 
 tabNavigator.path = '';

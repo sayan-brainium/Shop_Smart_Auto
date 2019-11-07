@@ -27,14 +27,21 @@ const HomeStack = createStackNavigator(
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
+    // <TabBarIcon
+    //   focused={focused}
+    //   name={
+    //     Platform.OS === 'ios'
+    //       ? `ios-information-circle${focused ? '' : '-outline'}`
+    //       : 'md-information-circle'
+    //   }
+    // />
+    <TouchableOpacity>
+        <ImageBackground
+          style={{ width: 20, height: 20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+          source={require('../assets/images/unselected_home_icon.png')}>
+        </ImageBackground>
+      </TouchableOpacity>
+
   ),
 };
 
@@ -51,14 +58,14 @@ const UsedCarStack = createStackNavigator(
 UsedCarStack.navigationOptions = {
   tabBarLabel: 'Used Car',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
 
-    // <TouchableOpacity>
-    //     <ImageBackground
-    //       style={{ width: 40, height: 15,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
-    //       source={require('../assets/images/used_car.png')}>
-    //     </ImageBackground>
-    //   </TouchableOpacity>
+    <TouchableOpacity>
+        <ImageBackground
+          style={{ width: 35, height: 15,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+          source={require('../assets/images/unselected_Used-Car_icon.png')}>
+        </ImageBackground>
+      </TouchableOpacity>
   ),
 };
 
@@ -74,14 +81,14 @@ const NewCarStack = createStackNavigator(
 NewCarStack.navigationOptions = {
   tabBarLabel: 'New Car',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
 
-    // <TouchableOpacity>
-    //     <ImageBackground
-    //       style={{ width: 25, height: 20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
-    //       source={require('../assets/images/new_car.png')}>
-    //     </ImageBackground>
-    //   </TouchableOpacity>
+    <TouchableOpacity>
+        <ImageBackground
+          style={{ width: 26, height:20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+          source={require('../assets/images/unselected_New-Carr_icon.png')}>
+        </ImageBackground>
+      </TouchableOpacity>
   ),
 };
 
@@ -97,14 +104,14 @@ const AutoLoanStack = createStackNavigator(
 AutoLoanStack.navigationOptions = {
   tabBarLabel: 'Auto Loan',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
 
-    // <TouchableOpacity>
-    //     <ImageBackground
-    //       style={{ width: 25, height: 25,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
-    //       source={require('../assets/images/Auto_loan.png')}>
-    //     </ImageBackground>
-    //   </TouchableOpacity>
+    <TouchableOpacity>
+        <ImageBackground
+          style={{ width: 25, height: 25,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+          source={require('../assets/images/unselected_Auto-Loan_icon.png')}>
+        </ImageBackground>
+      </TouchableOpacity>
   ),
 };
 
@@ -120,14 +127,14 @@ const DetailsStack = createStackNavigator(
 DetailsStack.navigationOptions = {
   tabBarLabel: 'Details',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
 
-    //   <TouchableOpacity>
-    //   <ImageBackground
-    //     style={{ width: 25, height: 20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
-    //     source={require('../assets/images/Details.png')}>
-    //   </ImageBackground>
-    // </TouchableOpacity>
+      <TouchableOpacity>
+      <ImageBackground
+        style={{ width: 20, height: 20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+        source={require('../assets/images/unselected_Dealers_icon.png')}>
+      </ImageBackground>
+    </TouchableOpacity>
   ),
 };
 
@@ -147,14 +154,14 @@ const OfferStack = createStackNavigator(
 OfferStack.navigationOptions = {
   tabBarLabel: 'Offer',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
 
-    //   <TouchableOpacity>
-    //   <ImageBackground
-    //     style={{ width:20, height: 15,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
-    //     source={require('../assets/images/offer.png')}>
-    //   </ImageBackground>
-    // </TouchableOpacity>
+      <TouchableOpacity>
+      <ImageBackground
+        style={{ width:20, height: 20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+        source={require('../assets/images/unselected_Offer_icon.png')}>
+      </ImageBackground>
+    </TouchableOpacity>
   ),
 };
 

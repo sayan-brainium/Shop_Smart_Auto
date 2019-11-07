@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, TextInput,StyleSheet,Text,TouchableOpacity,StatusBar,View } from 'react-native';
+import { ScrollView, TextInput,StyleSheet,Text,TouchableOpacity,ImageBackground,StatusBar,View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Icon from 'react-native-vector-icons/Ionicons';
 // import { TextInput } from 'react-native-gesture-handler';
@@ -79,7 +79,7 @@ export default function UsedCarScreen() {
 
 UsedCarScreen.navigationOptions = {
   headerTitle: (
-   <Text style={{color:'#fff',fontSize:16,fontWeight:'bold'}}>Used_Car</Text>
+   <Text style={{color:'#fff',fontSize:18,fontWeight:'bold'}}>Used_Car</Text>
 ),
 headerTintColor: '#fff',
 headerStyle: {
@@ -87,14 +87,28 @@ headerStyle: {
 },
 headerLeft: (
   <TouchableOpacity>
-    <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" />
+    <ImageBackground
+          style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20,color: '#fff' }}
+          source={require('../assets/images/back_icon.png')}>
+        </ImageBackground>
+    {/* <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
   </TouchableOpacity>
 ),
 headerRight:(
-  <View style={{flexDirection:'row'}}>
-    <Icon name="ios-notifications-outline" style={{ paddingRight: 20 }} size={25} color="#fff" />
-    <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
-  </View>
+  <View style={{ flexDirection: 'row' }}>
+     
+     <TouchableOpacity>
+        <ImageBackground
+          style={{ width: 25, height: 20,marginTop:3,position:'relative',marginRight:20, color: '#fff' }}
+          source={require('../assets/images/bell_icon.png')}>
+        </ImageBackground>
+      </TouchableOpacity>
+     
+      <TouchableOpacity>
+        <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
+      </TouchableOpacity>
+    
+    </View>
 ),
   
 };

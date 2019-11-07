@@ -87,7 +87,11 @@ DetailsScreen.navigationOptions = {
   },
   headerLeft: (
     <TouchableOpacity>
-      <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" />
+      <ImageBackground
+          style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20,color: '#fff' }}
+          source={require('../assets/images/back_icon.png')}>
+        </ImageBackground>
+      {/* <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
     </TouchableOpacity>
   ),
   headerRight: (
@@ -96,7 +100,7 @@ DetailsScreen.navigationOptions = {
       <TouchableOpacity>
         <ImageBackground
           style={{ width: 25, height: 20,marginTop:3,position:'relative', marginRight: 20, color: '#fff' }}
-          source={require('../assets/images/Notification.png')}>
+          source={require('../assets/images/bell_icon.png')}>
         </ImageBackground>
       </TouchableOpacity>
       <TouchableOpacity>

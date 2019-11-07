@@ -1,12 +1,12 @@
 import React from 'react';
-import { ScrollView, TextInput,StyleSheet,Text,TouchableOpacity,StatusBar,View } from 'react-native';
+import { ScrollView, TextInput,ImageBackground,StyleSheet,Text,TouchableOpacity,StatusBar,View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Icon from 'react-native-vector-icons/Ionicons';
 // import { TextInput } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-export default function LinksScreen() {
+export default function NewCarScreen() {
   const [value, onChangeText] = React.useState('');
   const [value1, onChangeText1] = React.useState('');
   const [value2, onChangeText2] = React.useState('');
@@ -44,19 +44,31 @@ export default function LinksScreen() {
           placeholder="Phone"
           placeholderTextColor= "#9fa2a7"
         />
+          {/* <View style={{flexDirection:'row'}}> */}
+            <TextInput
+              style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center' }}
+              onChangeText3={text => onChangeText3(text)}
+              value={value3}
+              placeholder="What day do you like to schedule a test drive"
+              placeholderTextColor="#9fa2a7"
+            />
+            {/* <TouchableOpacity>
+              <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" />
+            </TouchableOpacity> */}
+            {/* </TextInput> */}
+          {/* </View> */}
         <TextInput
-          style={{ height: 40, fontSize:12,borderColor: '#b1bacb',borderBottomWidth: 1,marginTop:10,marginBottom:10,marginLeft:20,marginRight:20,alignContent:'center' }}
-          onChangeText3={text => onChangeText3(text)}
-          value={value3}
-          placeholder="Your Offer"
-          placeholderTextColor= "#9fa2a7"
-         
+          style={{ height: 40, fontSize:12,borderColor: '#b1bacb',borderBottomWidth: 1,marginTop:10,marginBottom:10,marginLeft:20,marginRight:20,alignContent:'center', }}
+          onChangeText4={text => onChangeText4(text)}
+          value={value4}
+          placeholder="What time do you like to schedule a test drive"
+          placeholderTextColor="#9fa2a7"
         />
         <TextInput
           style={{ height: 40, fontSize:12,borderColor: '#b1bacb',borderBottomWidth: 1,marginTop:10,marginBottom:10,marginLeft:20,marginRight:20,alignContent:'center', }}
           onChangeText4={text => onChangeText4(text)}
           value={value4}
-          placeholder="Message"
+          placeholder="Additional info"
           placeholderTextColor="#9fa2a7"
         />
       </View>
@@ -77,23 +89,30 @@ export default function LinksScreen() {
   );
 }
 
-LinksScreen.navigationOptions = {
+NewCarScreen.navigationOptions = {
   headerTitle: (
-   <Text style={{color:'#fff',fontSize:16,fontWeight:'bold'}}>Make An Offer</Text>
+   <Text style={{color:'#fff',fontSize:18,fontWeight:'bold'}}>Schedule Test Drive</Text>
 ),
 headerTintColor: '#fff',
 headerStyle: {
-  backgroundColor: '#0e3ba0'
+  backgroundColor: '#0e3ba0',
 },
 headerLeft: (
   <TouchableOpacity>
-    <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" />
+    <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" />
   </TouchableOpacity>
 ),
 headerRight:(
   <View style={{flexDirection:'row'}}>
-    <Icon name="ios-notifications-outline" style={{ paddingRight: 20 }} size={25} color="#fff" />
-    <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
+    <TouchableOpacity>
+        <ImageBackground
+          style={{ width: 25, height: 20,marginTop:3,position:'relative', marginRight: 20, color: '#fff' }}
+          source={require('../assets/images/Notification.png')}>
+        </ImageBackground>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
+      </TouchableOpacity>
   </View>
 ),
   
@@ -108,7 +127,7 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 50,
     backgroundColor: "#3a786e",
-    width: 150,
+    width: 170,
     height: 40,
     alignSelf: 'center',
     justifyContent: 'center',

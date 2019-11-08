@@ -23,7 +23,7 @@ export default function AutoLoanScreen() {
       {/* <ExpoLinksView /> */}
       
      <View style={{marginHorizontal:40,marginBottom:50,marginTop:30}}>
-     <Text style={{marginBottom:8,fontSize:14,colore:'#535353'}}>APR</Text>
+     <Text style={{marginBottom:8,fontSize:14,color:'#535353'}}>APR</Text>
       <ProgressBarAndroid
           styleAttr="Horizontal"
           indeterminate={false}
@@ -32,7 +32,7 @@ export default function AutoLoanScreen() {
         />
       </View>
       <View style={{marginHorizontal:40,marginBottom:50}}>
-     <Text style={{marginBottom:8,fontSize:14,colore:'#535353'}}>Term</Text>
+     <Text style={{marginBottom:8,fontSize:14,color:'#535353'}}>Term</Text>
       <ProgressBarAndroid
           styleAttr="Horizontal"
           indeterminate={false}
@@ -41,7 +41,7 @@ export default function AutoLoanScreen() {
         />
       </View>
       <View style={{marginHorizontal:40,marginBottom:50}}>
-     <Text style={{marginBottom:8,fontSize:14,colore:'#535353'}}>Down Payment</Text>
+     <Text style={{marginBottom:8,fontSize:14,color:'#535353'}}>Down Payment</Text>
       <ProgressBarAndroid
           styleAttr="Horizontal"
           indeterminate={false}
@@ -50,7 +50,7 @@ export default function AutoLoanScreen() {
         />
       </View>
       <View style={{marginHorizontal:40,marginBottom:50}}>
-     <Text style={{marginBottom:8,fontSize:14,colore:'#535353'}}>Trade in</Text>
+     <Text style={{marginBottom:8,fontSize:14,color:'#535353'}}>Trade in</Text>
       <ProgressBarAndroid
           styleAttr="Horizontal"
           indeterminate={false}
@@ -71,7 +71,7 @@ export default function AutoLoanScreen() {
 
 AutoLoanScreen.navigationOptions = {
   headerTitle: (
-   <Text style={{color:'#fff',fontSize:18,fontWeight:'bold'}}>Payment Calculator</Text>
+   <Text style={{color:'#fff',fontSize:18,fontWeight:'bold',}}>Payment Calculator</Text>
 ),
 headerTintColor: '#fff',
 headerStyle: {

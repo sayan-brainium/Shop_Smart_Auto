@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 import moment from "moment";
 import DateTimePicker from "react-native-modal-datetime-picker";
-import TimePicker from "react-native-24h-timepicker";
+import TimePicker from 'react-native-simple-time-picker';
 
 export default function NewCarScreen() {
   const [value, onChangeText] = React.useState('');
@@ -15,43 +15,42 @@ export default function NewCarScreen() {
   const [value3, onChangevalue3] = React.useState('');
   const [value4, onChangevalue4] = React.useState('');
   const [value5, onChangeText5] = React.useState('');
-  const [timePickerVisible, isDateTimePickerVisible] = React.useState(false)
+  const [timePickerVisible, isDatePickerVisible] = React.useState(false)
   const [date, setDate] = React.useState('')
-  const [time, setTime] = React.useState('')
+  // const [time, setTime] = React.useState('')
+  // const [selectedHours, selectedHourSet] = React.useState(0)
+  // const [selectedMinutes, selectedMinuteSet] = React.useState(0)
 
+  const [timePicker, setTimePicker] = React.useState(false)
+  const [selectedTime, setSelectedTime] = React.useState('')
 
-  const showDateTimePicker = () => {
-    isDateTimePickerVisible(true);
+  const handleTimePick = (time) => {
+    console.log("Time", time);
+    const timeData = moment(time).format('hh:mm a')
+    setSelectedTime(timeData)
+    setTimePicker(false)
+  }
+
+  const showDatePicker = () => {
+    isDatePickerVisible(true);
     console.log("this is showDateTimePicker")
   };
 
-  const hideDateTimePicker = () => {
-    isDateTimePickerVisible(false);
+  const hideDatePicker = () => {
+    isDatePickerVisible(false);
   };
 
   const handleDatePicked = (date) => {
-    console.log("A date has been picked: ", date);
     setDate((moment(date).format("DD-MM-YYYY")).toString())
-    hideDateTimePicker();
-  };
-  const onCancel = () => {
-   TimePicker.close();
+ 
   };
 
-  const onConfirm = (hour, minute) => {
-    setTime({ time: `${hour}:${minute}` });
-    TimePicker.close();
-  };
 
   return (
     <>
 
       <ScrollView style={styles.container}>
-        {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-        {/* <ExpoLinksView /> */}
+      
 
         <View>
           <TextInput
@@ -85,16 +84,18 @@ export default function NewCarScreen() {
                 value={date}
                 placeholder="What day do you like to schedule a test drive"
                 placeholderTextColor="#9fa2a7"
+                onFocus={() => showDatePicker(true)}
+                onBlur={() => showDatePicker(false)}
               />
             </View>
 
             <DateTimePicker
               isVisible={timePickerVisible}
               onConfirm={handleDatePicked}
-              onCancel={hideDateTimePicker}
+              onCancel={hideDatePicker}
             />
 
-            <View style={{ justifyContent: 'flex-end', marginLeft: 110 }}>
+            {/* <View style={{ justifyContent: 'flex-end', marginLeft: 110, marginBottom: 8 }}>
               <TouchableOpacity
                 onPress={showDateTimePicker}
               >
@@ -103,7 +104,7 @@ export default function NewCarScreen() {
                   source={require('../assets/images/down_icon.png')}>
                 </ImageBackground>
               </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
 
 
@@ -112,29 +113,20 @@ export default function NewCarScreen() {
               <TextInput
                 style={{ height: 40, fontSize: 12, alignContent: 'center' }}
                 onChangeText={value4 => onChangevalue4(value4)}
-                value={time}
+                value={selectedTime}
                 placeholder="What time do you like to schedule a test drive"
                 placeholderTextColor="#9fa2a7"
+                onFocus={() => setTimePicker(true)}
+                onBlur={() => setTimePicker(false)}
               />
             </View>
-
-            <TimePicker
-              ref={ref => {
-              this.TimePicker = ref;
-              }}
-              onCancel={() =>onCancel()}
-              onConfirm={(hour, minute) =>onConfirm(hour, minute)}
+            <DateTimePicker
+              isVisible={timePicker}
+              onConfirm={handleTimePick}
+              onCancel={() => setTimePicker(false)}
+              mode="time"
+              is24Hour={false}
             />
-            <View style={{ justifyContent: 'flex-end', marginLeft: 105 }}>
-              <TouchableOpacity
-                onPress={()=>this.TimePicker.open()}
-              >
-                <ImageBackground
-                  style={{ width: 15, height: 10, position: 'relative', marginBottom: 5 }}
-                  source={require('../assets/images/down_icon.png')}>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
           </View>
 
 
@@ -172,10 +164,10 @@ NewCarScreen.navigationOptions = {
   },
   headerLeft: (
     <TouchableOpacity>
-     <ImageBackground
-          style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20,color: '#fff' }}
-          source={require('../assets/images/back_icon.png')}>
-        </ImageBackground>
+      <ImageBackground
+        style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20, color: '#fff' }}
+        source={require('../assets/images/back_icon.png')}>
+      </ImageBackground>
       {/* <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
     </TouchableOpacity>
   ),
@@ -218,5 +210,13 @@ const styles = StyleSheet.create({
     elevation: 5,
 
 
+  },
+  container1: {
+    flex: 1,
+    backgroundColor: '#fff',
+    marginLeft: 50,
+    marginRight: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

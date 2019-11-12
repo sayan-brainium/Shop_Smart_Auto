@@ -7,8 +7,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 import moment from "moment";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import TimePicker from 'react-native-simple-time-picker';
+import { setRecoveryProps } from 'expo/build/ErrorRecovery/ErrorRecovery';
 
-export default function NewCarScreen() {
+export default function NewCarScreen(Props) {
   const [value, onChangeText] = React.useState('');
   const [value1, onChangeText1] = React.useState('');
   const [value2, onChangeText2] = React.useState('');
@@ -144,7 +145,7 @@ export default function NewCarScreen() {
               colors={['#1e508d', '#3c7a6b', '#67b639']}
               start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
               style={styles.button}>
-              <Text style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
+              <Text onPress={()=>Props.navigation.navigate('CarListing')} style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>

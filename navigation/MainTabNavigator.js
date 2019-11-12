@@ -213,6 +213,7 @@ import NewCarScreen from '../screens/NewCarScreen';
 import AutoLoanScreen from '../screens/AutoLoanScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import OfferScreen from '../screens/OfferScreen';
+import CarListing from '../screens/carListing';
 
 const Devicewidth = Dimensions.get('window').width;
 
@@ -283,6 +284,7 @@ UsedCarStack.navigationOptions = {
 const NewCarStack = createStackNavigator(
   {
     Settings: NewCarScreen,
+    CarListing
   },
   // {
   //   headerLayoutPreset: 'center',

@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  Image,
   ImageBackground,
   View
 }from 'react-native';
@@ -36,13 +37,14 @@ HomeScreen.navigationOptions = {
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
+    marginTop: -25
   },
   headerLeft: (
     <TouchableOpacity>
-      <ImageBackground
-        style={{ width: 20, height: 15, marginTop: 3, position: 'relative', marginLeft: 20, color: '#fff' }}
+      <Image
+        style={{ width: 20, height: 15, marginTop: 3, position: 'relative', marginLeft: 20}}
         source={require('../assets/images/menu_icon.png')}>
-      </ImageBackground>
+      </Image>
       {/* <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
     </TouchableOpacity>
   ),
@@ -50,10 +52,10 @@ HomeScreen.navigationOptions = {
     <View style={{ flexDirection: 'row' }}>
 
       <TouchableOpacity>
-        <ImageBackground
-          style={{ width: 25, height: 20, marginTop: 3, position: 'relative', marginRight: 20, color: '#fff' }}
+        <Image
+          style={{ width: 25, height: 20, marginTop: 3, position: 'relative', marginRight: 20}}
           source={require('../assets/images/bell_icon.png')}>
-        </ImageBackground>
+        </Image>
       </TouchableOpacity>
 
       <TouchableOpacity>

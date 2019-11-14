@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { ScrollView, TextInput,StyleSheet,ProgressBarAndroid,Text,ImageBackground,TouchableOpacity,StatusBar,View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -7,11 +7,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function AutoLoanScreen() {
-  const [value, onChangeText] = React.useState('');
-  const [value1, onChangeText1] = React.useState('');
-  const [value2, onChangeText2] = React.useState('');
-  const [value3, onChangeText3] = React.useState('');
-  const [value4, onChangeText4] = React.useState('');
+  // const [value, onChangeText] = useState('');
+  // const [value1, onChangeText1] = useState('');
+  // const [value2, onChangeText2] = useState('');
+  // const [value3, onChangeText3] = useState('');
+  // const [value4, onChangeText4] = useState('');
   return (
     <>
     
@@ -76,6 +76,7 @@ AutoLoanScreen.navigationOptions = {
 headerTintColor: '#fff',
 headerStyle: {
   backgroundColor: '#0e3ba0',
+  marginTop: -25
 },
 headerLeft: (
   <TouchableOpacity>

@@ -39,10 +39,10 @@ export default function CarListing(props) {
       <>
         <View style={{ flex: 1, flexDirection: 'row', marginTop: 10 }}>
           <View style={{ flex: 0.2, marginLeft: 20 }}>
-            <ImageBackground
-              style={{ width: 65, height: 65,borderRadius:5}}
+            <Image
+              style={{ width: 65, height: 65, borderRadius:10}}
               source={{uri: image}}>
-            </ImageBackground>
+            </Image>
           </View>
           <View style={{ flex: 0.7,marginLeft:10 }}>
             <Text style={{ fontSize: 14, color: '#535353' }}>{model}</Text>
@@ -56,9 +56,9 @@ export default function CarListing(props) {
           </View>
         </View>
 
-        <View style={{ flex: 1, flexDirection: 'row', marginTop: 10,marginBottom:20 }}>
+        <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, justifyContent: 'space-evenly', marginBottom:20 }}>
 
-          <View style={{ flex: 0.4, flexDirection: 'row', justifyContent: 'center',marginTop:10 }}>
+          <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'center',marginTop:10 }}>
             <View style={{ flex: 0.5, alignItems: 'flex-end',}}>
               <ImageBackground
                 style={{ width: 20, height: 20}}
@@ -72,7 +72,11 @@ export default function CarListing(props) {
             </View>
           </View>
 
-          <View style={{ flex: 0.6, flexDirection: 'row', justifyContent: 'center',marginTop:10  }}>
+          <View style={{alignSelf:'center',}}>
+            <Text style={{color:'#d1d2cd'}}>I</Text>
+          </View>
+
+          <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'center',marginTop:10  }}>
             <View style={{ flex: 0.4, alignItems: 'flex-end',}}>
               <ImageBackground
                 style={{ width: 20, height: 20 }}
@@ -112,6 +116,10 @@ export default function CarListing(props) {
             </TouchableOpacity>
           </View>
         </View>
+
+        <View style={{alignSelf:'center',}}>
+            <Text style={{color:'#d1d2cd'}}>I</Text>
+          </View>
 
         <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'center' }}>
           <View style={{ flex: 0.25, justifyContent: 'flex-end' }}>
@@ -154,11 +162,12 @@ CarListing.navigationOptions = {
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
+    marginTop: -25
   },
   headerLeft: (
     <TouchableOpacity>
       <ImageBackground
-        style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20, color: '#fff' }}
+        style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20 }}
         source={require('../assets/images/back_icon.png')}>
       </ImageBackground>
       {/* <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
@@ -169,7 +178,7 @@ CarListing.navigationOptions = {
 
       <TouchableOpacity>
         <ImageBackground
-          style={{ width: 25, height: 20, marginTop: 3, position: 'relative', marginRight: 20, color: '#fff' }}
+          style={{ width: 25, height: 20, marginTop: 3, position: 'relative', marginRight: 20 }}
           source={require('../assets/images/bell_icon.png')}>
         </ImageBackground>
       </TouchableOpacity>

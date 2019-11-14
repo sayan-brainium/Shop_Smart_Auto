@@ -37,7 +37,7 @@
 //     // />
 //     <TouchableOpacity>
 //         <ImageBackground
-//           style={{ width: 20, height: 20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+//           style={{ width: 20, height: 20,marginTop:3,position:'relative',alignSelf:'center'}}
 //           source={require('../assets/images/unselected_home_icon.png')}>
 //         </ImageBackground>
 //       </TouchableOpacity>
@@ -62,7 +62,7 @@
 
 //     <TouchableOpacity>
 //         <ImageBackground
-//           style={{ width: 35, height: 15,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+//           style={{ width: 35, height: 15,marginTop:3,position:'relative',alignSelf:'center'}}
 //           source={require('../assets/images/unselected_Used-Car_icon.png')}>
 //         </ImageBackground>
 //       </TouchableOpacity>
@@ -85,7 +85,7 @@
 
 //     <TouchableOpacity>
 //         <ImageBackground
-//           style={{ width: 26, height:20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+//           style={{ width: 26, height:20,marginTop:3,position:'relative',alignSelf:'center'}}
 //           source={require('../assets/images/unselected_New-Carr_icon.png')}>
 //         </ImageBackground>
 //       </TouchableOpacity>
@@ -108,7 +108,7 @@
 
 //     <TouchableOpacity>
 //         <ImageBackground
-//           style={{ width: 25, height: 25,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+//           style={{ width: 25, height: 25,marginTop:3,position:'relative',alignSelf:'center' }}
 //           source={require('../assets/images/unselected_Auto-Loan_icon.png')}>
 //         </ImageBackground>
 //       </TouchableOpacity>
@@ -131,7 +131,7 @@
 
 //       <TouchableOpacity>
 //       <ImageBackground
-//         style={{ width: 20, height: 20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+//         style={{ width: 20, height: 20,marginTop:3,position:'relative',alignSelf:'center'}}
 //         source={require('../assets/images/unselected_Dealers_icon.png')}>
 //       </ImageBackground>
 //     </TouchableOpacity>
@@ -158,7 +158,7 @@
 
 //       <TouchableOpacity>
 //       <ImageBackground
-//         style={{ width:20, height: 20,marginTop:3,position:'relative',alignSelf:'center', color: '#fff' }}
+//         style={{ width:20, height: 20,marginTop:3,position:'relative',alignSelf:'center' }}
 //         source={require('../assets/images/unselected_Offer_icon.png')}>
 //       </ImageBackground>
 //     </TouchableOpacity>
@@ -214,6 +214,7 @@ import AutoLoanScreen from '../screens/AutoLoanScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import OfferScreen from '../screens/OfferScreen';
 import CarListing from '../screens/carListing';
+import TradeReportScreen from '../screens/tradeReport'
 
 const Devicewidth = Dimensions.get('window').width;
 
@@ -254,6 +255,7 @@ HomeStack.navigationOptions = {
 const UsedCarStack = createStackNavigator(
   {
     Settings: UsedCarScreen,
+    TradeReportScreen
   },
   // {
   //   headerLayoutPreset: 'center',

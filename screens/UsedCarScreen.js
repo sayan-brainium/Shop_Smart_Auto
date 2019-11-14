@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { ScrollView, TextInput,StyleSheet,Text,TouchableOpacity,ImageBackground,StatusBar,View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -6,12 +6,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-export default function UsedCarScreen() {
-  const [value, onChangeText] = React.useState('');
-  const [value1, onChangeText1] = React.useState('');
-  const [value2, onChangeText2] = React.useState('');
-  const [value3, onChangeText3] = React.useState('');
-  const [value4, onChangeText4] = React.useState('');
+export default function UsedCarScreen(Props) {
+  const [name, chnageName] = useState('');
+  const [email, changeEmail] = useState('');
+  const [phone, changePhone] = useState('');
+  const [offer, changeOffer] = useState('');
+  const [message, changeMessage] = useState('');
   return (
     <>
     
@@ -25,49 +25,51 @@ export default function UsedCarScreen() {
       <View>
         <TextInput
           style={{ height: 40,fontSize:12, borderColor: '#b1bacb',borderBottomWidth: 1,marginTop:10,marginBottom:10,marginLeft:20,marginRight:20,alignContent:'center' }}
-          onChangeText={text => onChangeText(text)}
-          value={value}
+          onChangeText={text => chnageName(text)}
+          value={name}
           placeholder="Name"
           placeholderTextColor= "#9fa2a7"
         />
         <TextInput
           style={{ height: 40,fontSize:12, borderColor: '#b1bacb',borderBottomWidth: 1,marginTop:10,marginBottom:10,marginLeft:20,marginRight:20,alignContent:'center'  }}
-          onChangeText1={text => onChangeText1(text)}
-          value={value1}
+          onChangeText={text => changeEmail(text)}
+          value={email}
           placeholder="Email"
           placeholderTextColor= "#9fa2a7"
         />
         <TextInput
           style={{ height: 40,fontSize:12, borderColor: '#b1bacb',borderBottomWidth: 1,marginTop:10,marginBottom:10,marginLeft:20,marginRight:20,alignContent:'center' }}
-          onChangeText2={text => onChangeText2(text)}
-          value={value2}
+          onChangeText={text => changePhone(text)}
+          value={phone}
           placeholder="Phone"
+          keyboardType="phone-pad"
           placeholderTextColor= "#9fa2a7"
         />
         <TextInput
           style={{ height: 40, fontSize:12,borderColor: '#b1bacb',borderBottomWidth: 1,marginTop:10,marginBottom:10,marginLeft:20,marginRight:20,alignContent:'center' }}
-          onChangeText3={text => onChangeText3(text)}
-          value={value3}
+          onChangeText={text => changeOffer(text)}
+          value={offer}
           placeholder="Your Offer"
           placeholderTextColor= "#9fa2a7"
          
         />
         <TextInput
           style={{ height: 40, fontSize:12,borderColor: '#b1bacb',borderBottomWidth: 1,marginTop:10,marginBottom:10,marginLeft:20,marginRight:20,alignContent:'center', }}
-          onChangeText4={text => onChangeText4(text)}
-          value={value4}
+          onChangeText={text => changeMessage(text)}
+          value={message}
           placeholder="Message"
           placeholderTextColor="#9fa2a7"
         />
       </View>
       <View>
-        <TouchableOpacity >
+        <TouchableOpacity 
+        onPress={()=>Props.navigation.navigate('TradeReportScreen')}>
           <LinearGradient
             colors={['#1e508d', '#3c7a6b', '#67b639']}
             start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
-            style={styles.button}>
-
-            <Text style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
+            style={styles.button}
+            >
+            <Text onPress={()=>Props.navigation.navigate('TradeReportScreen')}style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
           </LinearGradient>
         </TouchableOpacity>
       </View>
@@ -84,6 +86,7 @@ UsedCarScreen.navigationOptions = {
 headerTintColor: '#fff',
 headerStyle: {
   backgroundColor: '#0e3ba0',
+  marginTop: -25
 },
 headerLeft: (
   <TouchableOpacity>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { ScrollView, TextInput,ImageBackground, StyleSheet, Text, TouchableOpacity, StatusBar, View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -7,14 +7,15 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function OfferScreen() {
-  const [value, onChangeText] = React.useState('');
-  const [value1, onChangeText1] = React.useState('');
-  const [value2, onChangeText2] = React.useState('');
-  const [value3, onChangeText3] = React.useState('');
-  const [value4, onChangeText4] = React.useState('');
+
+  const [name, changeName] = useState('');
+  const [email, changeEmail] = useState('');
+  const [phone, changePhone] = useState('');
+  const [offer, changeOffer] = useState('');
+  const [message, changeMessage] = useState('');
+
   return (
     <>
-
       <ScrollView style={styles.container}>
         {/**
        * Go ahead and delete ExpoLinksView and replace it with your content;
@@ -25,37 +26,37 @@ export default function OfferScreen() {
         <View>
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center' }}
-            onChangeText={text => onChangeText(text)}
-            value={value}
+            onChangeText={text => changeName(text)}
+            value={name}
             placeholder="Name"
             placeholderTextColor="#9fa2a7"
           />
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center' }}
-            onChangeText1={text => onChangeText1(text)}
-            value={value1}
+            onChangeText={text => changeEmail(text)}
+            value={email}
             placeholder="Email"
             placeholderTextColor="#9fa2a7"
           />
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center' }}
-            onChangeText2={text => onChangeText2(text)}
-            value={value2}
+            onChangeText={text => changePhone(text)}
+            value={phone}
             placeholder="Phone"
             placeholderTextColor="#9fa2a7"
           />
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center' }}
-            onChangeText3={text => onChangeText3(text)}
-            value={value3}
+            onChangeText={text => changeOffer(text)}
+            value={offer}
             placeholder="Your Offer"
             placeholderTextColor="#9fa2a7"
 
           />
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center', }}
-            onChangeText4={text => onChangeText4(text)}
-            value={value4}
+            onChangeText={text => changeMessage(text)}
+            value={message}
             placeholder="Message"
             placeholderTextColor="#9fa2a7"
           />
@@ -84,6 +85,7 @@ OfferScreen.navigationOptions = {
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
+    marginTop: -25
   },
   headerLeft: (
     <TouchableOpacity>

@@ -19,7 +19,8 @@
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff",
-      "width":"100%"
+      "width":"100%",
+      "height":"100%"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

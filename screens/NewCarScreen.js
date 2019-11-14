@@ -10,12 +10,12 @@ import TimePicker from 'react-native-simple-time-picker';
 import { setRecoveryProps } from 'expo/build/ErrorRecovery/ErrorRecovery';
 
 export default function NewCarScreen(Props) {
-  const [value, onChangeText] = React.useState('');
-  const [value1, onChangeText1] = React.useState('');
-  const [value2, onChangeText2] = React.useState('');
-  const [value3, onChangevalue3] = React.useState('');
-  const [value4, onChangevalue4] = React.useState('');
-  const [value5, onChangeText5] = React.useState('');
+  const [name, changeName] = React.useState('');
+  const [email, changeEmail] = React.useState('');
+  const [phone, changePhone] = React.useState('');
+  const [value, onChangevalue3] = React.useState('');
+  const [time, changeTime] = React.useState('');
+  const [info, changeInfo] = React.useState('');
   const [timePickerVisible, isDatePickerVisible] = React.useState(false)
   const [date, setDate] = React.useState('')
   // const [time, setTime] = React.useState('')
@@ -32,8 +32,8 @@ export default function NewCarScreen(Props) {
     setTimePicker(false)
   }
 
-  const showDatePicker = () => {
-    isDatePickerVisible(true);
+  const showDatePicker = (val) => {
+    isDatePickerVisible(val);
     console.log("this is showDateTimePicker")
   };
 
@@ -52,27 +52,28 @@ export default function NewCarScreen(Props) {
 
       <ScrollView style={styles.container}>
       
-
         <View>
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center' }}
-            onChangeText={text => onChangeText(text)}
-            value={value}
+            onChangeText={text => changeName(text)}
+            value={name}
             placeholder="Name"
             placeholderTextColor="#9fa2a7"
           />
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center' }}
-            onChangeText={text => onChangeText1(text)}
-            value={value1}
+            onChangeText={text => changeEmail(text)}
+            value={email}
             placeholder="Email"
+            keyboardType="email-address"
             placeholderTextColor="#9fa2a7"
           />
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center' }}
-            onChangeText={text => onChangeText2(text)}
-            value={value2}
+            onChangeText={text => changePhone(text)}
+            value={phone}
             placeholder="Phone"
+            keyboardType="phone-pad"
             placeholderTextColor="#9fa2a7"
           />
 
@@ -93,7 +94,7 @@ export default function NewCarScreen(Props) {
             <DateTimePicker
               isVisible={timePickerVisible}
               onConfirm={handleDatePicked}
-              onCancel={hideDatePicker}
+              onCancel={() => showDatePicker(false)}
             />
 
             {/* <View style={{ justifyContent: 'flex-end', marginLeft: 110, marginBottom: 8 }}>
@@ -113,7 +114,7 @@ export default function NewCarScreen(Props) {
             <View>
               <TextInput
                 style={{ height: 40, fontSize: 12, alignContent: 'center' }}
-                onChangeText={value4 => onChangevalue4(value4)}
+                onChangeText={value4 => changeTime(value4)}
                 value={selectedTime}
                 placeholder="What time do you like to schedule a test drive"
                 placeholderTextColor="#9fa2a7"
@@ -133,14 +134,15 @@ export default function NewCarScreen(Props) {
 
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center', }}
-            onChangeText={text => onChangeText5(text)}
-            value={value5}
+            onChangeText={text => changeInfo(text)}
+            value={info}
             placeholder="Additional info"
             placeholderTextColor="#9fa2a7"
           />
         </View>
         <View>
-          <TouchableOpacity >
+          <TouchableOpacity 
+           onPress={()=>Props.navigation.navigate('CarListing')}>
             <LinearGradient
               colors={['#1e508d', '#3c7a6b', '#67b639']}
               start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
@@ -162,11 +164,12 @@ NewCarScreen.navigationOptions = {
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
+    marginTop: -25
   },
   headerLeft: (
     <TouchableOpacity>
       <ImageBackground
-        style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20, color: '#fff' }}
+        style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20}}
         source={require('../assets/images/back_icon.png')}>
       </ImageBackground>
       {/* <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
@@ -176,7 +179,7 @@ NewCarScreen.navigationOptions = {
     <View style={{ flexDirection: 'row' }}>
       <TouchableOpacity>
         <ImageBackground
-          style={{ width: 25, height: 20, marginTop: 3, position: 'relative', marginRight: 20, color: '#fff' }}
+          style={{ width: 25, height: 20, marginTop: 3, position: 'relative', marginRight: 20 }}
           source={require('../assets/images/bell_icon.png')}>
         </ImageBackground>
       </TouchableOpacity>

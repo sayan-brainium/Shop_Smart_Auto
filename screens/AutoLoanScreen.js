@@ -4,7 +4,7 @@ import { ExpoLinksView } from '@expo/samples';
 import Icon from 'react-native-vector-icons/Ionicons';
 // import { TextInput } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
-
+import CustomSlider from './../components/customSlider'
 
 export default function AutoLoanScreen() {
   // const [value, onChangeText] = useState('');
@@ -24,12 +24,7 @@ export default function AutoLoanScreen() {
       
      <View style={{marginHorizontal:40,marginBottom:50,marginTop:30}}>
      <Text style={{marginBottom:8,fontSize:14,color:'#535353'}}>APR</Text>
-      <ProgressBarAndroid
-          styleAttr="Horizontal"
-          indeterminate={false}
-          color='#78cb28'
-          progress={0.25}
-        />
+       <CustomSlider />
       </View>
       <View style={{marginHorizontal:40,marginBottom:50}}>
      <Text style={{marginBottom:8,fontSize:14,color:'#535353'}}>Term</Text>

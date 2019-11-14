@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { ScrollView, TextInput, StyleSheet, ImageBackground, Text, TouchableOpacity, StatusBar, View } from 'react-native';
+import { ScrollView, TextInput, StyleSheet, Image, Text, TouchableOpacity, StatusBar, View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Icon from 'react-native-vector-icons/Ionicons';
 // import { TextInput } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-export default function DetailsScreen() {
+export default function DetailsScreen(Props) {
   const [name, changeName] = useState('');
   const [email, changeEmail] = useState('');
   const [phone, changePhone] = useState('');
@@ -64,13 +64,13 @@ export default function DetailsScreen() {
           />
         </View>
         <View>
-          <TouchableOpacity >
+          <TouchableOpacity onPress={()=>Props.navigation.navigate('CarDetailsScreen')}>
             <LinearGradient
               colors={['#1e508d', '#3c7a6b', '#67b639']}
               start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
               style={styles.button}>
 
-              <Text style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
+              <Text onPress={()=>Props.navigation.navigate('CarDetailsScreen')} style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>
@@ -91,10 +91,10 @@ DetailsScreen.navigationOptions = {
   },
   headerLeft: (
     <TouchableOpacity>
-      <ImageBackground
+      <Image
           style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20 }}
           source={require('../assets/images/back_icon.png')}>
-        </ImageBackground>
+        </Image>
       {/* <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
     </TouchableOpacity>
   ),
@@ -102,10 +102,10 @@ DetailsScreen.navigationOptions = {
     <View style={{ flexDirection: 'row' }}>
       {/* <Icon name="ios-notifications-outline" style={{ paddingRight: 20 }} size={25} color="#fff" /> */}
       <TouchableOpacity>
-        <ImageBackground
+        <Image
           style={{ width: 25, height: 20,marginTop:3,position:'relative', marginRight: 20 }}
           source={require('../assets/images/bell_icon.png')}>
-        </ImageBackground>
+        </Image>
       </TouchableOpacity>
       <TouchableOpacity>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />

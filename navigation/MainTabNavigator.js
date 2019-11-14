@@ -215,6 +215,7 @@ import DetailsScreen from '../screens/DetailsScreen';
 import OfferScreen from '../screens/OfferScreen';
 import CarListing from '../screens/carListing';
 import TradeReportScreen from '../screens/tradeReport'
+import CarDetailsScreen from '../screens/carDetails'
 
 const Devicewidth = Dimensions.get('window').width;
 
@@ -380,6 +381,7 @@ DetailsStack.navigationOptions = {
 const OfferStack = createStackNavigator(
   {
     Offer: OfferScreen,
+    CarDetailsScreen
 
   },
   // {

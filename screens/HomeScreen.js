@@ -123,9 +123,9 @@ export default function HomeScreen() {
   
 
 
-      <View style={{justifyContent:'center',alignSelf:'center',marginTop:20,marginBottom:10}}>
+      <View style={{justifyContent:'center',marginHorizontal:20,alignSelf:'center',marginTop:10,marginBottom:10,}}>
         <ImageBackground
-          style={{ width: 370, height: 110, position: 'relative',alignSelf:'center'}}
+          style={{ width: 360, height: 120, position: 'relative',alignSelf:'center'}}
           source={require('../assets/images/bg.png')}>
               <Text style={{color:'#fff',fontSize:14,textAlign:'center',marginTop:20}}>Value Your Trade in 10 Seconds or less </Text>
               <TextInput
@@ -140,7 +140,7 @@ export default function HomeScreen() {
         <Text style={{color:'#383838',fontWeight:'bold',marginLeft:15,marginTop:20,marginBottom:10}}>Browse By Brands</Text>
       
 
-      <ScrollView style={{marginBottom:10}}>
+      <View style={{marginBottom:10}}>
       <FlatList
         data={DATA}
         // numColumns={4}
@@ -156,16 +156,17 @@ export default function HomeScreen() {
         keyExtractor={item => item.id}
       />
       {/* <Text>Imlementing Flatlist</Text> */}
-      </ScrollView>
+      </View>
 
 
 
       <Text style={{color:'#383838',fontWeight:'bold',marginLeft:15,marginTop:20,marginBottom:10}}>Browse By Body Style</Text>
 
-      <ScrollView style={{marginBottom:50}}>
+      <View style={{marginBottom:10}}>
       <FlatList
         data={DATA1}
         horizontal={true}
+        marginBottom={20}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <View>
@@ -176,7 +177,7 @@ export default function HomeScreen() {
         )}
         keyExtractor={item => item.id}
       />
-      </ScrollView>
+      </View>
 
 
     </ScrollView>

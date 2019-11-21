@@ -16,11 +16,10 @@
     "orientation": "portrait",
     "icon": "./assets/images/Shop-Smart-Auto_Logo1.png",
     "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
-      "width":"100%",
-      "height":"100%"
+      "image": "./assets/images/splash1.png",
+      "resizeMode":"cover",
+      "backgroundColor": "#ffffff"
+      
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -33,7 +32,16 @@
     },
     
       "android": {
-          "package": "com.example.Shop_Smart_Auto"
+          "package": "com.example.Shop_Smart_Auto",
+          "splash": {
+            "backgroundColor": "#ffffff",
+            "resizeMode": "cover",
+            "mdpi": "./assets/images/splash1.png",
+            "hdpi": "./assets/images/splash2.png",
+            "xhdpi": "./assets/images/splash3.png",
+            "xxhdpi": "./assets/images/splash4.png",
+            "xxxhdpi": "./assets/images/splash5.png"
+          }
       }
   }
 }

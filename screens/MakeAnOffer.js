@@ -78,7 +78,7 @@ export default function MakeAnOffer() {
   );
 }
 
-MakeAnOffer.navigationOptions = {
+MakeAnOffer.navigationOptions = ({navigation}) => ( {
   headerTitle: (
     <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Make An Offer</Text>
   ),
@@ -88,7 +88,7 @@ MakeAnOffer.navigationOptions = {
     marginTop: -25
   },
   headerLeft: (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={ () => navigation.goBack(null)}>
      <ImageBackground
           style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20,color: '#fff' }}
           source={require('../assets/images/back_icon.png')}>
@@ -106,14 +106,14 @@ MakeAnOffer.navigationOptions = {
         </ImageBackground>
       </TouchableOpacity>
      
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('HeaderSearch')}>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
       </TouchableOpacity>
     
     </View>
   ),
 
-};
+});
 
 const styles = StyleSheet.create({
   container: {

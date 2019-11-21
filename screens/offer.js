@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-export default function UsedCar(Props) {
+export default function offer(Props) {
   const [name, chnageName] = useState('');
   const [email, changeEmail] = useState('');
   const [phone, changePhone] = useState('');
@@ -62,14 +62,13 @@ export default function UsedCar(Props) {
         />
       </View>
       <View>
-        <TouchableOpacity 
-        onPress={()=>Props.navigation.navigate('TradeReportScreen')}>
+        <TouchableOpacity>
           <LinearGradient
             colors={['#1e508d', '#3c7a6b', '#67b639']}
             start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
             style={styles.button}
             >
-            <Text onPress={()=>Props.navigation.navigate('TradeReportScreen')}style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
+            <Text style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
           </LinearGradient>
         </TouchableOpacity>
       </View>
@@ -79,24 +78,24 @@ export default function UsedCar(Props) {
   );
 }
 
-UsedCar.navigationOptions = {
+offer.navigationOptions = ({ navigation }) => ({
   headerTitle: (
-   <Text style={{color:'#fff',fontSize:18,fontWeight:'bold'}}>Used_Car</Text>
+   <Text style={{color:'#fff',fontSize:18,marginLeft:35,fontWeight:'bold'}}>Offer</Text>
 ),
 headerTintColor: '#fff',
 headerStyle: {
   backgroundColor: '#0e3ba0',
   marginTop: -25
 },
-headerLeft: (
-  <TouchableOpacity>
-    <ImageBackground
-          style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20,color: '#fff' }}
-          source={require('../assets/images/back_icon.png')}>
-        </ImageBackground>
-    {/* <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
-  </TouchableOpacity>
-),
+// headerLeft: (
+//   <TouchableOpacity>
+//     <ImageBackground
+//           style={{ width: 20, height: 20,marginTop:3,position:'relative',color: '#fff' }}
+//           source={require('../assets/images/back_icon.png')}>
+//         </ImageBackground>
+//     {/* <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
+//   </TouchableOpacity>
+// ),
 headerRight:(
   <View style={{ flexDirection: 'row' }}>
      
@@ -107,14 +106,14 @@ headerRight:(
         </ImageBackground>
       </TouchableOpacity>
      
-      <TouchableOpacity>
+      <TouchableOpacity  onPress={() => navigation.navigate('HeaderSearch')}>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
       </TouchableOpacity>
     
     </View>
 ),
   
-};
+});
 
 const styles = StyleSheet.create({
   container: {

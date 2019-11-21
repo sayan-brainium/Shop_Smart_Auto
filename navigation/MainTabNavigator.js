@@ -1,202 +1,3 @@
-// import React from 'react';
-// import { Platform, StatusBar, TouchableOpacity, ImageBackground } from 'react-native';
-// import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
-// import TabBarIcon from '../components/TabBarIcon';
-// import HomeScreen from '../screens/HomeScreen';
-// import UsedCarScreen from '../screens/UsedCarScreen';
-// import ScheduleTestDriveScreen from '../screens/ScheduleTestDriveScreen';
-// import PaymentCalculator from '../screens/PaymentCalculator';
-// import RequestMoreInfo from '../screens/RequestMoreInfo';
-// import MakeAnOffer from '../screens/MakeAnOffer';
-// // import SettingsScreen from '../screens/SettingsScreen';
-
-// const config = Platform.select({
-//   web: { headerMode: 'screen' },
-//   default: {},
-// });
-
-// //For Home 
-// const HomeStack = createStackNavigator(
-//   {
-//     Home: HomeScreen,
-//   },
-//   config
-// );
-
-// HomeStack.navigationOptions = {
-//   tabBarLabel: 'Home',
-//   tabBarIcon: ({ focused }) => (
-//     // <TabBarIcon
-//     //   focused={focused}
-//     //   name={
-//     //     Platform.OS === 'ios'
-//     //       ? `ios-information-circle${focused ? '' : '-outline'}`
-//     //       : 'md-information-circle'
-//     //   }
-//     // />
-//     <TouchableOpacity>
-//         <ImageBackground
-//           style={{ width: 20, height: 20,marginTop:3,position:'relative',alignSelf:'center'}}
-//           source={require('../assets/images/unselected_home_icon.png')}>
-//         </ImageBackground>
-//       </TouchableOpacity>
-
-//   ),
-// };
-
-// HomeStack.path = '';
-
-// //For Used_Car
-// const UsedCarStack = createStackNavigator(
-//   {
-//     Settings: UsedCarScreen,
-//   },
-//   config
-// );
-
-// UsedCarStack.navigationOptions = {
-//   tabBarLabel: 'Used Car',
-//   tabBarIcon: ({ focused }) => (
-//     // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-
-//     <TouchableOpacity>
-//         <ImageBackground
-//           style={{ width: 35, height: 15,marginTop:3,position:'relative',alignSelf:'center'}}
-//           source={require('../assets/images/unselected_Used-Car_icon.png')}>
-//         </ImageBackground>
-//       </TouchableOpacity>
-//   ),
-// };
-
-// UsedCarStack.path = '';
-
-// const NewCarStack = createStackNavigator(
-//   {
-//     Settings: ScheduleTestDrive,
-//   },
-//   config
-// );
-
-// NewCarStack.navigationOptions = {
-//   tabBarLabel: 'New Car',
-//   tabBarIcon: ({ focused }) => (
-//     // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-
-//     <TouchableOpacity>
-//         <ImageBackground
-//           style={{ width: 26, height:20,marginTop:3,position:'relative',alignSelf:'center'}}
-//           source={require('../assets/images/unselected_New-Carr_icon.png')}>
-//         </ImageBackground>
-//       </TouchableOpacity>
-//   ),
-// };
-
-// NewCarStack.path = '';
-
-// const AutoLoanStack = createStackNavigator(
-//   {
-//     Settings: PaymentCalculator,
-//   },
-//   config
-// );
-
-// AutoLoanStack.navigationOptions = {
-//   tabBarLabel: 'Auto Loan',
-//   tabBarIcon: ({ focused }) => (
-//     // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-
-//     <TouchableOpacity>
-//         <ImageBackground
-//           style={{ width: 25, height: 25,marginTop:3,position:'relative',alignSelf:'center' }}
-//           source={require('../assets/images/unselected_Auto-Loan_icon.png')}>
-//         </ImageBackground>
-//       </TouchableOpacity>
-//   ),
-// };
-
-// AutoLoanStack.path = '';
-
-// const DetailsStack = createStackNavigator(
-//   {
-//     Settings: RequestMoreInfo,
-//   },
-//   config
-// );
-
-// DetailsStack.navigationOptions = {
-//   tabBarLabel: 'Details',
-//   tabBarIcon: ({ focused }) => (
-//     // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-
-//       <TouchableOpacity>
-//       <ImageBackground
-//         style={{ width: 20, height: 20,marginTop:3,position:'relative',alignSelf:'center'}}
-//         source={require('../assets/images/unselected_Dealers_icon.png')}>
-//       </ImageBackground>
-//     </TouchableOpacity>
-//   ),
-// };
-
-// DetailsStack.path = '';
-
-
-// const OfferStack = createStackNavigator(
-//   {
-//     Offer: MakeAnOffer,
-
-//   },
-
-
-//   config
-// );
-
-// OfferStack.navigationOptions = {
-//   tabBarLabel: 'Offer',
-//   tabBarIcon: ({ focused }) => (
-//     // <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-
-//       <TouchableOpacity>
-//       <ImageBackground
-//         style={{ width:20, height: 20,marginTop:3,position:'relative',alignSelf:'center' }}
-//         source={require('../assets/images/unselected_Offer_icon.png')}>
-//       </ImageBackground>
-//     </TouchableOpacity>
-//   ),
-// };
-
-// OfferStack.path = '';
-
-// // const SettingsStack = createStackNavigator(
-// //   {
-// //     Settings: SettingsScreen,
-// //   },
-// //   config
-// // );
-
-// // SettingsStack.navigationOptions = {
-// //   tabBarLabel: 'Settings',
-// //   tabBarIcon: ({ focused }) => (
-// //     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-// //   ),
-// // };
-
-// // SettingsStack.path = '';
-
-// const tabNavigator = createBottomTabNavigator({
-//   HomeStack,
-//   UsedCarStack,
-//   NewCarStack,
-//   AutoLoanStack,
-//   DetailsStack,
-//   // SettingsStack,
-//   OfferStack,
-// });
-
-// tabNavigator.path = '';
-
-// export default tabNavigator;
-
 import React from 'react';
 import { Platform, Dimensions } from 'react-native';
 import {
@@ -208,7 +9,7 @@ import {
 import { TabBarIcon, MaterialCommunityIcon,ImageIcon } from '../components/TabBarIcon';
 import DrawerScreen from '../screens/drawerScreen'
 import HomeScreen from '../screens/HomeScreen';
-import UsedCar from '../screens/UsedCar';
+import offer from '../screens/offer';
 import ScheduleTestDriveScreen from '../screens/ScheduleTestDrive';
 import PaymentCalculator from '../screens/PaymentCalculator';
 import RequestMoreInfo from '../screens/RequestMoreInfo';
@@ -216,13 +17,20 @@ import MakeAnOffer from '../screens/MakeAnOffer';
 import CarListing from '../screens/carListing';
 import TradeReportScreen from '../screens/tradeReport'
 import CarDetailsScreen from '../screens/carDetails'
+import TestDetails from '../screens/testDetails'
+import HeaderSearch from '../screens/headerSearch'
 
 const Devicewidth = Dimensions.get('window').width;
 
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
-    CarDetailsScreen
+    ScheduleTestDriveScreen,
+    CarDetailsScreen,
+    RequestMoreInfo,
+    MakeAnOffer,
+    TradeReportScreen,
+    HeaderSearch
   },
   // {
   //   headerLayoutPreset: 'center',
@@ -258,6 +66,11 @@ const UsedCarStack = createStackNavigator(
   {
     Settings:CarListing,
     ScheduleTestDriveScreen ,
+    CarDetailsScreen,
+    RequestMoreInfo,
+    MakeAnOffer,
+    TradeReportScreen,
+    HeaderSearch
     
   },
   // {
@@ -289,7 +102,12 @@ UsedCarStack.navigationOptions = {
 const NewCarStack = createStackNavigator(
   {
     Settings: CarListing,
-    ScheduleTestDriveScreen
+    ScheduleTestDriveScreen,
+    CarDetailsScreen,
+    RequestMoreInfo,
+    MakeAnOffer,
+    TradeReportScreen,
+    HeaderSearch
     
   },
   // {
@@ -321,6 +139,7 @@ NewCarStack.navigationOptions = {
 const AutoLoanStack = createStackNavigator(
   {
     Settings: PaymentCalculator,
+    HeaderSearch
   },
   // {
   //   headerLayoutPreset: 'center',
@@ -353,12 +172,8 @@ AutoLoanStack.navigationOptions = {
 
 const DetailsStack = createStackNavigator(
   {
-    Settings: CarDetailsScreen,
-    RequestMoreInfo,
-    ScheduleTestDriveScreen,
-    CarListing,
-    MakeAnOffer,
-    TradeReportScreen
+    Settings: TestDetails,
+
     
   },
   // {
@@ -389,7 +204,8 @@ DetailsStack.navigationOptions = {
 
 const OfferStack = createStackNavigator(
   {
-    Offer:UsedCar
+    Offer:offer,
+    HeaderSearch
 
   },
   // {
@@ -424,7 +240,6 @@ const TabNavigator = createBottomTabNavigator({
   NewCarStack,
   AutoLoanStack,
   DetailsStack,
-  // SettingsStack,
   OfferStack,
 });
 

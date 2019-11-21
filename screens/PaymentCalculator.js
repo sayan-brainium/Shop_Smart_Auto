@@ -24,7 +24,13 @@ export default function PaymentCalculator() {
       
      <View style={{marginHorizontal:40,marginBottom:50,marginTop:30}}>
      <Text style={{marginBottom:8,fontSize:14,color:'#535353'}}>APR</Text>
-       <CustomSlider />
+     <ProgressBarAndroid
+          styleAttr="Horizontal"
+          indeterminate={false}
+          color='#78cb28'
+          progress={0.25}
+        />
+       {/* <CustomSlider /> */}
       </View>
       <View style={{marginHorizontal:40,marginBottom:50}}>
      <Text style={{marginBottom:8,fontSize:14,color:'#535353'}}>Term</Text>
@@ -64,24 +70,24 @@ export default function PaymentCalculator() {
   );
 }
 
-PaymentCalculator.navigationOptions = {
+PaymentCalculator.navigationOptions = ({ navigation }) => ({
   headerTitle: (
-   <Text style={{color:'#fff',fontSize:18,fontWeight:'bold',}}>Payment Calculator</Text>
+   <Text style={{color:'#fff',marginLeft:35,fontSize:18,fontWeight:'bold',}}>Payment Calculator</Text>
 ),
 headerTintColor: '#fff',
 headerStyle: {
   backgroundColor: '#0e3ba0',
   marginTop: -25
 },
-headerLeft: (
-  <TouchableOpacity>
-    {/* <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
-    <ImageBackground
-          style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20,color: '#fff' }}
-          source={require('../assets/images/back_icon.png')}>
-        </ImageBackground>
-  </TouchableOpacity>
-),
+// headerLeft: (
+//   <TouchableOpacity>
+//     {/* <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
+//     <ImageBackground
+//           style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20,color: '#fff' }}
+//           source={require('../assets/images/back_icon.png')}>
+//         </ImageBackground>
+//   </TouchableOpacity>
+// ),
 headerRight:(
   <View style={{flexDirection:'row'}}>
     <TouchableOpacity>
@@ -90,13 +96,13 @@ headerRight:(
           source={require('../assets/images/bell_icon.png')}>
         </ImageBackground>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('HeaderSearch')}>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
       </TouchableOpacity>
   </View>
 ),
   
-};
+});
 
 const styles = StyleSheet.create({
   container: {

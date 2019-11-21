@@ -90,7 +90,7 @@ export default function TradeReportScreen() {
   );
 }
 
-TradeReportScreen.navigationOptions = {
+TradeReportScreen.navigationOptions = ({ navigation }) => ({
   headerTitle: (
     <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Trade Report</Text>
   ),
@@ -117,13 +117,13 @@ TradeReportScreen.navigationOptions = {
           source={require('../assets/images/bell_icon.png')}>
         </Image>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('HeaderSearch')}>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
       </TouchableOpacity>
     </View>
   ),
 
-};
+});
 
 const styles = StyleSheet.create({
   container: {

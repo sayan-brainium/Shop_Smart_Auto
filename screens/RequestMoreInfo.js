@@ -107,7 +107,7 @@ RequestMoreInfo.navigationOptions = ({navigation}) => ({
           source={require('../assets/images/bell_icon.png')}>
         </Image>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('HeaderSearch')}>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
       </TouchableOpacity>
     </View>

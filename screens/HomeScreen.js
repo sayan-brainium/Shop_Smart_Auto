@@ -15,13 +15,13 @@ import ImageSlider from '../components/imageSlider'
 
 export default function HomeScreen(props) {
   
-  console.log("PROPS", props);
+  // console.log("PROPS", props);
   
 
   const [Model, changeModel] = useState('');
   const DATA = [
     {
-      id: '1',
+      id: '1',    
       BrandImage: 'https://www.logodesignlove.com/images/car/bmw-logo.gif'
     },
     {
@@ -121,23 +121,63 @@ export default function HomeScreen(props) {
   navigateTo = () => {
     props.navigation.navigate('CarDetailsScreen') 
   }
+  navigateTo1 = () => {
+    props.navigation.navigate('TradeReportScreen') 
+  }
 
   return (
 
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-     <View style={{marginBottom:20,marginTop:10}}>
+     <View style={{marginTop:10}}>
+      <View>
         <ImageSlider pagination={true} autoslide={true} />
+        </View>
+       
+       
+        <View style={{flexDirection:'row' ,position:'relative',top:-145,marginLeft:35}}>
+        <View>
+          <View style={{marginBottom:30}}>
+            <Text style={{color:"#fff",fontSize:18,fontWeight:'bold',textAlign:'justify'}}>You Need A Car?</Text>
+            <Text style={{color:'#fff',fontSize:12,textAlign:'justify'}}>It is a long established fact </Text>
+            <Text style={{color:'#fff',fontSize:12,textAlign:'justify'}}>that a reader will be..</Text>
+          </View>
+          <View style={{flexDirection:'row',position:'relative',marginLeft:-15}}>
+            <View>
+            <Image
+        style={{ width: 40, height: 25, marginTop: 3, position: 'relative',marginRight:10}}
+        source={require('../assets/images/call_icon.png')}>
+      </Image>
+            </View>
+            <View>
+              <Text style={{marginTop:5,color:'#fff',fontSize:14}}>000-000-000</Text>
+            </View>
+          </View>
+          </View>
+          <View style={{justifyContent:'flex-start',alignSelf:'center'}}>
+          <ImageBackground
+        style={{ width: 60, height: 60, position: 'relative',marginLeft:10}}
+        source={require('../assets/images/book_icon.png')}>
+     <View style={{marginTop:15}}>
+     <Text style={{color:"#fff",fontSize:12,fontWeight:'bold',textAlign:'justify',alignSelf:'center'}}>Book</Text>
+     <Text style={{color:"#fff",fontSize:12,fontWeight:'bold',textAlign:'justify',alignSelf:'center'}}>Early</Text>
+     </View>
+      </ImageBackground>
+          </View>
+        </View>
+
+
       </View>
   
 
 
-      <View style={{justifyContent:'center',marginHorizontal:20,alignSelf:'center',marginTop:10,marginBottom:10,}}>
+      <View style={{justifyContent:'center',marginHorizontal:20,alignSelf:'center',position:'relative',marginTop:-90,marginBottom:10,}}>
         <ImageBackground
           style={{ width: 360, height: 120, position: 'relative',alignSelf:'center'}}
           source={require('../assets/images/bg.png')}>
               <Text style={{color:'#fff',fontSize:14,textAlign:'center',marginTop:20}}>Value Your Trade in 10 Seconds or less </Text>
               <TextInput
             style={{ height: 40, fontSize: 12,borderRadius:20,backgroundColor:'#fff', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20,paddingLeft:15 }}
+            onFocus={navigateTo1}
             onChangeText={text => changeModel(text)}
             value={Model}
             placeholder="Year Make Model Trim or VIN"
@@ -195,7 +235,7 @@ export default function HomeScreen(props) {
 
 
 //For Header Section Only
-HomeScreen.navigationOptions = {
+HomeScreen.navigationOptions = ({ navigation }) => ({
   headerTitle: (
     <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Home</Text>
   ),
@@ -223,13 +263,13 @@ HomeScreen.navigationOptions = {
         </Image>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('HeaderSearch')}>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
       </TouchableOpacity>
 
     </View>
   ),
-};
+});
 
 const styles = StyleSheet.create({
   container: {

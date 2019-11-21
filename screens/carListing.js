@@ -24,13 +24,31 @@ export default function CarListing(Props) {
       id: '3',
       Model: '2017 Honda Accord Nybrid 191628',
       value: '27,960',
-      Image: 'https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+      Image: 'https://images.pexels.com/photos/1592261/pexels-photo-1592261.jpeg?cs=srgb&dl=automobile-automotive-car-1592261.jpg&fm=jpg'
     },
     {
       id: '4',
       Model: '2016 Honda Accord Nybrid 191629',
       value: '28,960',
-      Image: 'https://images.pexels.com/photos/100653/pexels-photo-100653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+      Image: 'https://images.pexels.com/photos/909907/pexels-photo-909907.jpeg?cs=srgb&dl=audi-automobile-car-909907.jpg&fm=jpg'
+    },
+    {
+      id: '5',
+      Model: '2016 Honda Accord Nybrid 191629',
+      value: '29,960',
+      Image: 'https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    },
+    {
+      id: '6',
+      Model: '2016 Honda Accord Nybrid 191629',
+      value: '30,960',
+      Image: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    },
+    {
+      id: '7',
+      Model: '2016 Honda Accord Nybrid 191629',
+      value: '31,960',
+      Image: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?cs=srgb&dl=action-asphalt-auto-1592384.jpg&fm=jpg'
     },
   ];
 
@@ -45,15 +63,15 @@ export default function CarListing(Props) {
             </Image>
           </TouchableOpacity>
           <View style={{ flex: 0.7,marginLeft:10 }}>
-            <Text style={{ fontSize: 14, color: '#535353' }}>{model}</Text>
+            <Text onPress={()=>Props.navigation.navigate('CarDetailsScreen')}  style={{ fontSize: 14, color: '#535353' }}>{model}</Text>
             <Text style={{ color: '#116ace', fontWeight: 'bold' }}>${value}</Text>
           </View>
-          <View style={{ flex: 0.1, marginRight: 10, marginLeft: 20 }}>
+          <TouchableOpacity onPress={()=>Props.navigation.navigate('CarDetailsScreen')}  style={{ flex: 0.1, marginRight: 10, marginLeft: 20 }}>
             <ImageBackground
               style={{ width: 20, height: 20 ,marginLeft:10}}
               source={require('../assets/images/edit_icon.png')}>
             </ImageBackground>
-          </View>
+          </TouchableOpacity>
         </View>
 
         <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, justifyContent: 'space-evenly', marginBottom:20 }}>
@@ -161,22 +179,22 @@ export default function CarListing(Props) {
 
 CarListing.navigationOptions = ({navigation}) => ({
   headerTitle: (
-    <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Car Listing</Text>
+    <Text style={{ color: '#fff', marginLeft: 35 , fontSize: 18, fontWeight: 'bold' }}>Car Listing</Text>
   ),
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
     marginTop: -25
   },
-  headerLeft: (
-    <TouchableOpacity onPress={ () => navigation.goBack(null)}>
-      <Image
-        style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20 }}
-        source={require('../assets/images/back_icon.png')}>
-      </Image>
-      {/* <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
-    </TouchableOpacity>
-  ),
+  // headerLeft: (
+  //   <TouchableOpacity onPress={ () => navigation.goBack(null)}>
+  //     <Image
+  //       style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20 }}
+  //       source={require('../assets/images/back_icon.png')}>
+  //     </Image>
+  //     {/* <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
+  //   </TouchableOpacity>
+  // ),
   headerRight: (
     <View style={{ flexDirection: 'row' }}>
 
@@ -187,7 +205,7 @@ CarListing.navigationOptions = ({navigation}) => ({
         </ImageBackground>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('HeaderSearch')}>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
       </TouchableOpacity>
 

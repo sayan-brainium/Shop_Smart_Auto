@@ -141,7 +141,7 @@ export default function CarDetailsScreen(Props) {
           source={{ uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4' }}
           rate={1.0}
           volume={1.0}
-          isMuted={false}
+          isMuted={true}
           marginHorizontal={20}
           resizeMode="cover"
           shouldPlay
@@ -231,7 +231,7 @@ export default function CarDetailsScreen(Props) {
         <TouchableOpacity style={{}}>
           <Text style={{ marginBottom: 20, color: '#55595a', fontSize: 12, textAlign: 'center', }}>VEHILE OPTION</Text>
         </TouchableOpacity>
-        <TouchableOpacity  onPress={()=>Props.navigation.navigate('TradeReportScreen')}  style={{}}>
+        <TouchableOpacity style={{}}>
           <Text style={{ marginBottom: 20, color: '#55595a', fontSize: 12, textAlign: 'center', }}>VEHILE DETAILS</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{}}>
@@ -306,7 +306,7 @@ CarDetailsScreen.navigationOptions = ({navigation}) =>({
         </Image>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('HeaderSearch')}>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
       </TouchableOpacity>
 

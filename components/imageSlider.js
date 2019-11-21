@@ -21,7 +21,7 @@ export default class ImageSlider extends React.Component {
   }
 
   _renderItemWithParallax({ item, index }, parallaxProps) {
-    console.log("item data",item.title)
+   
     return (
       <SliderEntry
         imageName={item.illustration}

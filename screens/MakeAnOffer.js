@@ -1,20 +1,21 @@
 import React, {useState, useEffect} from 'react';
-import { ScrollView, TextInput, StyleSheet, Image, Text, TouchableOpacity, StatusBar, View } from 'react-native';
+import { ScrollView, TextInput,ImageBackground, StyleSheet, Text, TouchableOpacity, StatusBar, View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Icon from 'react-native-vector-icons/Ionicons';
 // import { TextInput } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-export default function DetailsScreen(Props) {
+export default function MakeAnOffer() {
+
   const [name, changeName] = useState('');
   const [email, changeEmail] = useState('');
   const [phone, changePhone] = useState('');
-  const [zipcode, changeZipcode] = useState('');
-  const [info, changeInfo] = useState('');
+  const [offer, changeOffer] = useState('');
+  const [message, changeMessage] = useState('');
+
   return (
     <>
-
       <ScrollView style={styles.container}>
         {/**
        * Go ahead and delete ExpoLinksView and replace it with your content;
@@ -42,35 +43,32 @@ export default function DetailsScreen(Props) {
             onChangeText={text => changePhone(text)}
             value={phone}
             placeholder="Phone"
-            keyboardType="phone-pad"
             placeholderTextColor="#9fa2a7"
           />
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center' }}
-            onChangeText={text => changeZipcode(text)}
-            value={zipcode}
-            keyboardType="number-pad"
-            maxLength={6}
-            placeholder="Zip Code"
+            onChangeText={text => changeOffer(text)}
+            value={offer}
+            placeholder="Your Offer"
             placeholderTextColor="#9fa2a7"
 
           />
           <TextInput
             style={{ height: 40, fontSize: 12, borderColor: '#b1bacb', borderBottomWidth: 1, marginTop: 10, marginBottom: 10, marginLeft: 20, marginRight: 20, alignContent: 'center', }}
-            onChangeText={text => changeInfo(text)}
-            value={info}
-            placeholder="Additional info"
+            onChangeText={text => changeMessage(text)}
+            value={message}
+            placeholder="Message"
             placeholderTextColor="#9fa2a7"
           />
         </View>
         <View>
-          <TouchableOpacity onPress={()=>Props.navigation.navigate('CarDetailsScreen')}>
+          <TouchableOpacity >
             <LinearGradient
               colors={['#1e508d', '#3c7a6b', '#67b639']}
               start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
               style={styles.button}>
 
-              <Text onPress={()=>Props.navigation.navigate('CarDetailsScreen')} style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
+              <Text style={{ color: '#fff', fontSize: 16, alignSelf: 'center' }}>submit</Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>
@@ -80,9 +78,9 @@ export default function DetailsScreen(Props) {
   );
 }
 
-DetailsScreen.navigationOptions = {
+MakeAnOffer.navigationOptions = {
   headerTitle: (
-    <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Request More info</Text>
+    <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Make An Offer</Text>
   ),
   headerTintColor: '#fff',
   headerStyle: {
@@ -91,25 +89,27 @@ DetailsScreen.navigationOptions = {
   },
   headerLeft: (
     <TouchableOpacity>
-      <Image
-          style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20 }}
+     <ImageBackground
+          style={{ width: 20, height: 20,marginTop:3,position:'relative',marginLeft:20,color: '#fff' }}
           source={require('../assets/images/back_icon.png')}>
-        </Image>
-      {/* <Icon name="md-arrow-back" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
+        </ImageBackground>
+      {/* <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
     </TouchableOpacity>
   ),
   headerRight: (
     <View style={{ flexDirection: 'row' }}>
-      {/* <Icon name="ios-notifications-outline" style={{ paddingRight: 20 }} size={25} color="#fff" /> */}
-      <TouchableOpacity>
-        <Image
-          style={{ width: 25, height: 20,marginTop:3,position:'relative', marginRight: 20 }}
+     
+     <TouchableOpacity>
+        <ImageBackground
+          style={{ width: 25, height: 20,marginTop:3,position:'relative',marginRight:20, color: '#fff' }}
           source={require('../assets/images/bell_icon.png')}>
-        </Image>
+        </ImageBackground>
       </TouchableOpacity>
+     
       <TouchableOpacity>
         <Icon name="ios-search" style={{ paddingRight: 20 }} size={25} color="#fff" />
       </TouchableOpacity>
+    
     </View>
   ),
 

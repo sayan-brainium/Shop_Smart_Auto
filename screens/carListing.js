@@ -5,32 +5,32 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
-export default function CarListing(props) {
+export default function CarListing(Props) {
   // const CarListingComponents = (props) => {
   const DATA = [
     {
       id: '1',
       Model: '2019 Honda Accord Nybrid 191626',
       value: '25,960',
-      Image: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      Image: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '2',
       Model: '2018 Honda Accord Nybrid 191627',
       value: '26,960',
-      Image: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      Image: 'https://images.pexels.com/photos/1149056/pexels-photo-1149056.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '3',
       Model: '2017 Honda Accord Nybrid 191628',
       value: '27,960',
-      Image: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      Image: 'https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '4',
       Model: '2016 Honda Accord Nybrid 191629',
       value: '28,960',
-      Image: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      Image: 'https://images.pexels.com/photos/100653/pexels-photo-100653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
   ];
 
@@ -38,12 +38,12 @@ export default function CarListing(props) {
     return (
       <>
         <View style={{ flex: 1, flexDirection: 'row', marginTop: 10 }}>
-          <View style={{ flex: 0.2, marginLeft: 20 }}>
+          <TouchableOpacity onPress={()=>Props.navigation.navigate('CarDetailsScreen')} style={{ flex: 0.2, marginLeft: 20 }}>
             <Image
               style={{ width: 65, height: 65, borderRadius:10}}
               source={{uri: image}}>
             </Image>
-          </View>
+          </TouchableOpacity>
           <View style={{ flex: 0.7,marginLeft:10 }}>
             <Text style={{ fontSize: 14, color: '#535353' }}>{model}</Text>
             <Text style={{ color: '#116ace', fontWeight: 'bold' }}>${value}</Text>
@@ -78,13 +78,17 @@ export default function CarListing(props) {
 
           <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'center',marginTop:10  }}>
             <View style={{ flex: 0.4, alignItems: 'flex-end',}}>
-              <ImageBackground
+              <TouchableOpacity
+              onPress={()=>Props.navigation.navigate('ScheduleTestDriveScreen')}>
+              <ImageBackground 
                 style={{ width: 20, height: 20 }}
                 source={require('../assets/images/Schedule-Test-Drive_icon.png')}>
               </ImageBackground>
+              </TouchableOpacity>
             </View>
             <View style={{ flex: 0.6, justifyContent: 'flex-start' }}>
-              <TouchableOpacity>
+              <TouchableOpacity
+              onPress={()=>Props.navigation.navigate('ScheduleTestDriveScreen')}>
                 <Text style={{ fontSize: 10, color: '#a1a69b',textAlign:'center',marginRight:35,paddingTop:2 }}>Schedule Test Drive</Text>
               </TouchableOpacity>
             </View>
@@ -155,7 +159,7 @@ export default function CarListing(props) {
   );
 }
 
-CarListing.navigationOptions = {
+CarListing.navigationOptions = ({navigation}) => ({
   headerTitle: (
     <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Car Listing</Text>
   ),
@@ -165,11 +169,11 @@ CarListing.navigationOptions = {
     marginTop: -25
   },
   headerLeft: (
-    <TouchableOpacity>
-      <ImageBackground
+    <TouchableOpacity onPress={ () => navigation.goBack(null)}>
+      <Image
         style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20 }}
         source={require('../assets/images/back_icon.png')}>
-      </ImageBackground>
+      </Image>
       {/* <Icon name="ios-menu" style={{ paddingLeft: 20 }} size={25} color="#fff" /> */}
     </TouchableOpacity>
   ),
@@ -190,7 +194,7 @@ CarListing.navigationOptions = {
     </View>
   ),
 
-};
+});
 
 const styles = StyleSheet.create({
   container: {

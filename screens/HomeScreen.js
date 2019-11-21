@@ -13,40 +13,44 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import ImageSlider from '../components/imageSlider'
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
+  
+  console.log("PROPS", props);
+  
+
   const [Model, changeModel] = useState('');
   const DATA = [
     {
       id: '1',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://www.logodesignlove.com/images/car/bmw-logo.gif'
     },
     {
       id: '2',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Renault-Car-Logo.webp'
     },
     {
       id: '3',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Vauxhall-Logo-Design.webp'
     },
     {
       id: '4',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Ferrari-Logo-Design.webp'
     },
     {
       id: '5',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Volkswagen-Logo-Design.webp'
     },
     {
       id: '6',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Bentley-Logo-Design.webp'
     },
     {
       id: '7',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Lamborghini-Logo-Design.webp'
     },
     {
       id: '8',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Ford-Logo-Design.webp'
     },
   ];
 
@@ -55,35 +59,35 @@ export default function HomeScreen() {
   const DATA1=[
       {
         id: '1',
-        BodyImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+        BodyImage: 'https://images.pexels.com/photos/1592261/pexels-photo-1592261.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
       },
       {
         id: '2',
-        BodyImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+        BodyImage: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
       },
       {
         id: '3',
-        BodyImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+        BodyImage: 'https://images.pexels.com/photos/119435/pexels-photo-119435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
       },
       {
         id: '4',
-        BodyImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+        BodyImage: 'https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
       },
       {
         id: '5',
-        BodyImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+        BodyImage: 'https://images.pexels.com/photos/1429775/pexels-photo-1429775.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
       },
       {
         id: '6',
-        BodyImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+        BodyImage: 'https://images.pexels.com/photos/761815/pexels-photo-761815.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
       },
       {
         id: '7',
-        BodyImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+        BodyImage: 'https://images.pexels.com/photos/131811/pexels-photo-131811.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
       },
       {
         id: '8',
-        BodyImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+        BodyImage: 'https://images.pexels.com/photos/69020/pexels-photo-69020.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
       },
       
   ];
@@ -91,12 +95,12 @@ export default function HomeScreen() {
   function Item({brandimage}) {
     return (
       <>
-        <View style={{marginLeft:10,marginRight:5}}>
+        <TouchableOpacity style={{marginLeft:10,marginRight:5}} onPress={this.navigateTo}>
         <Image
               style={{ width: 80, height: 80}}
               source={{uri: brandimage}}>
             </Image>
-        </View>
+        </TouchableOpacity>
       </>
     );
   }
@@ -104,14 +108,18 @@ export default function HomeScreen() {
   function Item1({bodyimage}) {
     return (
       <>
-        <View style={{marginLeft:10,marginRight:5}}>
+        <TouchableOpacity style={{marginLeft:10,marginRight:5}}onPress={this.navigateTo}>
         <Image
               style={{ width: 80, height: 80}}
               source={{uri: bodyimage}}>
             </Image>
-        </View>
+        </TouchableOpacity>
       </>
     );
+  }
+
+  navigateTo = () => {
+    props.navigation.navigate('CarDetailsScreen') 
   }
 
   return (

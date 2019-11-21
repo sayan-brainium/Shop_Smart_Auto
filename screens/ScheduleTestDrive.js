@@ -9,7 +9,7 @@ import DateTimePicker from "react-native-modal-datetime-picker";
 import TimePicker from 'react-native-simple-time-picker';
 import { setRecoveryProps } from 'expo/build/ErrorRecovery/ErrorRecovery';
 
-export default function NewCarScreen(Props) {
+export default function ScheduleTestDriveScreen(Props) {
   const [name, changeName] = React.useState('');
   const [email, changeEmail] = React.useState('');
   const [phone, changePhone] = React.useState('');
@@ -141,8 +141,7 @@ export default function NewCarScreen(Props) {
           />
         </View>
         <View>
-          <TouchableOpacity 
-           onPress={()=>Props.navigation.navigate('CarListing')}>
+          <TouchableOpacity>
             <LinearGradient
               colors={['#1e508d', '#3c7a6b', '#67b639']}
               start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
@@ -157,7 +156,7 @@ export default function NewCarScreen(Props) {
   );
 }
 
-NewCarScreen.navigationOptions = {
+ScheduleTestDriveScreen.navigationOptions = ({navigation}) => ({
   headerTitle: (
     <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Schedule Test Drive</Text>
   ),
@@ -167,7 +166,7 @@ NewCarScreen.navigationOptions = {
     marginTop: -25
   },
   headerLeft: (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={ () => navigation.goBack(null)}>
       <ImageBackground
         style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20}}
         source={require('../assets/images/back_icon.png')}>
@@ -189,7 +188,7 @@ NewCarScreen.navigationOptions = {
     </View>
   ),
 
-};
+});
 
 const styles = StyleSheet.create({
   container: {

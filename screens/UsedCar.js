@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-export default function UsedCarScreen(Props) {
+export default function UsedCar(Props) {
   const [name, chnageName] = useState('');
   const [email, changeEmail] = useState('');
   const [phone, changePhone] = useState('');
@@ -79,7 +79,7 @@ export default function UsedCarScreen(Props) {
   );
 }
 
-UsedCarScreen.navigationOptions = {
+UsedCar.navigationOptions = {
   headerTitle: (
    <Text style={{color:'#fff',fontSize:18,fontWeight:'bold'}}>Used_Car</Text>
 ),

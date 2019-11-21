@@ -16,60 +16,60 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Video } from 'expo-av';
 
 
-export default function CarDetailsScreen() {
+export default function CarDetailsScreen(Props) {
   const DATA = [
     {
       id: '1',
       Name: 'BMW',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://images.pexels.com/photos/1592261/pexels-photo-1592261.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '2',
       Name: 'Toyota',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '3',
       Name: 'Aston Martin',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://images.pexels.com/photos/119435/pexels-photo-119435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '4',
       Name: 'Alfa Romeo',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '5',
       Name: 'Ferari',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://images.pexels.com/photos/1429775/pexels-photo-1429775.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '6',
       Name: 'Bugati',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://images.pexels.com/photos/761815/pexels-photo-761815.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '7',
       Name: 'Skoda',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://images.pexels.com/photos/131811/pexels-photo-131811.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
     {
       id: '8',
       Name: 'Audi',
-      BrandImage: 'https://cdn.jamieoliver.com/home/wp-content/uploads/2016/06/2.jpg'
+      BrandImage: 'https://images.pexels.com/photos/69020/pexels-photo-69020.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
     },
   ];
 
   function Item({ brandimage, name }) {
     return (
       <>
-        <View style={{ marginLeft: 10, marginRight: 5 }}>
+        <TouchableOpacity  onPress={()=>Props.navigation.navigate('CarListing')} style={{ marginLeft: 10, marginRight: 5 }}>
           <Image
             style={{ width: 80, height: 80 }}
             source={{ uri: brandimage }}>
           </Image>
           <Text style={{ color: '#5a5b5f', fontSize: 10, alignSelf: 'center', marginTop: 10 }}>{name}</Text>
-        </View>
+        </TouchableOpacity>
       </>
     );
   }
@@ -138,7 +138,7 @@ export default function CarDetailsScreen() {
       <View style={{ marginBottom: 20, justifyContent: 'center', }}>
       
         <Video
-          source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+          source={{ uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4' }}
           rate={1.0}
           volume={1.0}
           isMuted={false}
@@ -164,11 +164,11 @@ export default function CarDetailsScreen() {
       </View>
 
       <View style={{ marginBottom: 10,marginTop:10 }}>
-        <TouchableOpacity style={{ justifyContent: 'center' }}>
-          <Text style={{ marginBottom: 20, color: '#55595a', fontSize: 12, textAlign: 'center', }}>Schedule Test Drive</Text>
+        <TouchableOpacity onPress={()=>Props.navigation.navigate('ScheduleTestDriveScreen')}  style={{ justifyContent: 'center' }}>
+          <Text onPress={()=>Props.navigation.navigate('ScheduleTestDriveScreen')} style={{ marginBottom: 20, color: '#55595a', fontSize: 12, textAlign: 'center', }}>Schedule Test Drive</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{ justifyContent: 'center' }}>
-          <Text style={{ marginBottom: 20, color: '#55595a', fontSize: 12, textAlign: 'center', }}>Request More info</Text>
+        <TouchableOpacity onPress={()=>Props.navigation.navigate('RequestMoreInfo')}  style={{ justifyContent: 'center' }}>
+          <Text onPress={()=>Props.navigation.navigate('RequestMoreInfo')}  style={{ marginBottom: 20, color: '#55595a', fontSize: 12, textAlign: 'center', }}>Request More info</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{ justifyContent: 'center' }}>
           <Text style={{ marginBottom: 20, color: '#55595a', fontSize: 12, textAlign: 'center', }}>Ger Pre-Approved in Seconds</Text>
@@ -179,7 +179,7 @@ export default function CarDetailsScreen() {
       </View>
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20, marginHorizontal: 5 }}>
-        <TouchableOpacity >
+        <TouchableOpacity onPress={()=>Props.navigation.navigate('MakeAnOffer')}>
           <LinearGradient
             colors={['#1e508d', '#3c7a6b', '#67b639']}
             start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
@@ -189,7 +189,7 @@ export default function CarDetailsScreen() {
                 style={{ width: 20, height: 20 }}
                 source={require('../assets/images/Make_an-Offer_icon.png')}>
               </Image>
-              <Text style={{ color: '#fff', fontSize: 12, textAlign: 'justify' }}>Make An Offfer</Text>
+              <Text onPress={()=>Props.navigation.navigate('MakeAnOffer')} style={{ color: '#fff', fontSize: 12, textAlign: 'justify' }}>Make An Offfer</Text>
             </View>
           </LinearGradient>
         </TouchableOpacity>
@@ -231,7 +231,7 @@ export default function CarDetailsScreen() {
         <TouchableOpacity style={{}}>
           <Text style={{ marginBottom: 20, color: '#55595a', fontSize: 12, textAlign: 'center', }}>VEHILE OPTION</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{}}>
+        <TouchableOpacity  onPress={()=>Props.navigation.navigate('TradeReportScreen')}  style={{}}>
           <Text style={{ marginBottom: 20, color: '#55595a', fontSize: 12, textAlign: 'center', }}>VEHILE DETAILS</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{}}>
@@ -278,7 +278,7 @@ export default function CarDetailsScreen() {
 
 
 //For Header Section Only
-CarDetailsScreen.navigationOptions = {
+CarDetailsScreen.navigationOptions = ({navigation}) =>({
   headerTitle: (
     <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Car Details</Text>
   ),
@@ -288,7 +288,7 @@ CarDetailsScreen.navigationOptions = {
     marginTop: -25
   },
   headerLeft: (
-    <TouchableOpacity>
+    <TouchableOpacity  onPress={ () => navigation.goBack(null)}>
       <Image
         style={{ width: 20, height: 20, marginTop: 3, position: 'relative', marginLeft: 20 }}
         source={require('../assets/images/back_icon.png')}>
@@ -312,7 +312,7 @@ CarDetailsScreen.navigationOptions = {
 
     </View>
   ),
-};
+});
 
 const styles = StyleSheet.create({
   container: {

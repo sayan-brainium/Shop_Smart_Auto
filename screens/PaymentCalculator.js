@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 import CustomSlider from './../components/customSlider'
 
-export default function AutoLoanScreen() {
+export default function PaymentCalculator() {
   // const [value, onChangeText] = useState('');
   // const [value1, onChangeText1] = useState('');
   // const [value2, onChangeText2] = useState('');
@@ -64,7 +64,7 @@ export default function AutoLoanScreen() {
   );
 }
 
-AutoLoanScreen.navigationOptions = {
+PaymentCalculator.navigationOptions = {
   headerTitle: (
    <Text style={{color:'#fff',fontSize:18,fontWeight:'bold',}}>Payment Calculator</Text>
 ),

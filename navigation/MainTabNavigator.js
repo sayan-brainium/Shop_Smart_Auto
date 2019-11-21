@@ -5,10 +5,10 @@
 // import TabBarIcon from '../components/TabBarIcon';
 // import HomeScreen from '../screens/HomeScreen';
 // import UsedCarScreen from '../screens/UsedCarScreen';
-// import NewCarScreen from '../screens/NewCarScreen';
-// import AutoLoanScreen from '../screens/AutoLoanScreen';
-// import DetailsScreen from '../screens/DetailsScreen';
-// import OfferScreen from '../screens/OfferScreen';
+// import ScheduleTestDriveScreen from '../screens/ScheduleTestDriveScreen';
+// import PaymentCalculator from '../screens/PaymentCalculator';
+// import RequestMoreInfo from '../screens/RequestMoreInfo';
+// import MakeAnOffer from '../screens/MakeAnOffer';
 // // import SettingsScreen from '../screens/SettingsScreen';
 
 // const config = Platform.select({
@@ -73,7 +73,7 @@
 
 // const NewCarStack = createStackNavigator(
 //   {
-//     Settings: NewCarScreen,
+//     Settings: ScheduleTestDrive,
 //   },
 //   config
 // );
@@ -96,7 +96,7 @@
 
 // const AutoLoanStack = createStackNavigator(
 //   {
-//     Settings: AutoLoanScreen,
+//     Settings: PaymentCalculator,
 //   },
 //   config
 // );
@@ -119,7 +119,7 @@
 
 // const DetailsStack = createStackNavigator(
 //   {
-//     Settings: DetailsScreen,
+//     Settings: RequestMoreInfo,
 //   },
 //   config
 // );
@@ -143,7 +143,7 @@
 
 // const OfferStack = createStackNavigator(
 //   {
-//     Offer: OfferScreen,
+//     Offer: MakeAnOffer,
 
 //   },
 
@@ -208,11 +208,11 @@ import {
 import { TabBarIcon, MaterialCommunityIcon,ImageIcon } from '../components/TabBarIcon';
 import DrawerScreen from '../screens/drawerScreen'
 import HomeScreen from '../screens/HomeScreen';
-import UsedCarScreen from '../screens/UsedCarScreen';
-import NewCarScreen from '../screens/NewCarScreen';
-import AutoLoanScreen from '../screens/AutoLoanScreen';
-import DetailsScreen from '../screens/DetailsScreen';
-import OfferScreen from '../screens/OfferScreen';
+import UsedCar from '../screens/UsedCar';
+import ScheduleTestDriveScreen from '../screens/ScheduleTestDrive';
+import PaymentCalculator from '../screens/PaymentCalculator';
+import RequestMoreInfo from '../screens/RequestMoreInfo';
+import MakeAnOffer from '../screens/MakeAnOffer';
 import CarListing from '../screens/carListing';
 import TradeReportScreen from '../screens/tradeReport'
 import CarDetailsScreen from '../screens/carDetails'
@@ -222,6 +222,7 @@ const Devicewidth = Dimensions.get('window').width;
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    CarDetailsScreen
   },
   // {
   //   headerLayoutPreset: 'center',
@@ -255,8 +256,9 @@ HomeStack.navigationOptions = {
 
 const UsedCarStack = createStackNavigator(
   {
-    Settings: UsedCarScreen,
-    TradeReportScreen
+    Settings:CarListing,
+    ScheduleTestDriveScreen ,
+    
   },
   // {
   //   headerLayoutPreset: 'center',
@@ -286,8 +288,9 @@ UsedCarStack.navigationOptions = {
 
 const NewCarStack = createStackNavigator(
   {
-    Settings: NewCarScreen,
-    CarListing
+    Settings: CarListing,
+    ScheduleTestDriveScreen
+    
   },
   // {
   //   headerLayoutPreset: 'center',
@@ -317,7 +320,7 @@ NewCarStack.navigationOptions = {
 
 const AutoLoanStack = createStackNavigator(
   {
-    Settings: AutoLoanScreen,
+    Settings: PaymentCalculator,
   },
   // {
   //   headerLayoutPreset: 'center',
@@ -350,7 +353,13 @@ AutoLoanStack.navigationOptions = {
 
 const DetailsStack = createStackNavigator(
   {
-    Settings: DetailsScreen,
+    Settings: CarDetailsScreen,
+    RequestMoreInfo,
+    ScheduleTestDriveScreen,
+    CarListing,
+    MakeAnOffer,
+    TradeReportScreen
+    
   },
   // {
   //   headerLayoutPreset: 'center',
@@ -380,8 +389,7 @@ DetailsStack.navigationOptions = {
 
 const OfferStack = createStackNavigator(
   {
-    Offer: OfferScreen,
-    CarDetailsScreen
+    Offer:UsedCar
 
   },
   // {

@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  Platform,
   FlatList,
   ImageBackground,
   View
@@ -26,31 +27,31 @@ export default function HomeScreen(props) {
     },
     {
       id: '2',
-      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Renault-Car-Logo.webp'
+      BrandImage: 'https://www.logodesignlove.com/images/car/fiat-logo.gif'
     },
     {
       id: '3',
-      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Vauxhall-Logo-Design.webp'
+      BrandImage: 'https://www.logodesignlove.com/images/car/alfa-romeo-logo.gif'
     },
     {
       id: '4',
-      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Ferrari-Logo-Design.webp'
+      BrandImage: 'https://www.logodesignlove.com/images/car/honda-logo.gif'
     },
     {
       id: '5',
-      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Volkswagen-Logo-Design.webp'
+      BrandImage: 'https://www.logodesignlove.com/images/simple-logos/mitsubishi-logo.gif'
     },
     {
       id: '6',
-      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Bentley-Logo-Design.webp'
+      BrandImage: 'https://www.logodesignlove.com/images/car/nissan-logo.gif'
     },
     {
       id: '7',
-      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Lamborghini-Logo-Design.webp'
+      BrandImage: 'https://www.logodesignlove.com/images/car/volkswagon-logo.gif'
     },
     {
       id: '8',
-      BrandImage: 'https://inkbotdesign.com/wp-content/uploads/2014/11/Ford-Logo-Design.webp'
+      BrandImage: 'https://www.logodesignlove.com/images/car/renault-logo.gif'
     },
   ];
 
@@ -237,12 +238,22 @@ export default function HomeScreen(props) {
 //For Header Section Only
 HomeScreen.navigationOptions = ({ navigation }) => ({
   headerTitle: (
-    <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Home</Text>
+    'Home'
   ),
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
-    marginTop: -25
+    fontSize:'18',
+   fontWeight: 'bold',
+    // marginTop:-10,
+    // height:55
+    height: Platform.OS === 'android' ? 30 : 55,
+    marginTop: Platform.OS === 'ios' ? -10 : 0,
+    paddingBottom: Platform.OS === 'ios' ? 0: 25,
+    ...Platform.select({
+      ios: { backgroundColor: '#0e3ba0'},
+      android: { backgroundColor: '#0e3ba0'}
+    }),
   },
   headerLeft: (
     <TouchableOpacity>

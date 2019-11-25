@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, TextInput, FlatList, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, StatusBar, View } from 'react-native';
+import { ScrollView, TextInput, FlatList, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, StatusBar, View,Platform } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -179,12 +179,21 @@ export default function CarListing(Props) {
 
 CarListing.navigationOptions = ({navigation}) => ({
   headerTitle: (
-    <Text style={{ color: '#fff', marginLeft: 35 , fontSize: 18, fontWeight: 'bold' }}>Car Listing</Text>
+    'Car Listing'
   ),
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
-    marginTop: -25
+    fontSize:'18',
+   fontWeight: 'bold',
+    // 
+    height: Platform.OS === 'android' ? 30 : 55,
+    marginTop: Platform.OS === 'ios' ? -10 : 0,
+    paddingBottom: Platform.OS === 'ios' ? 0: 25,
+    ...Platform.select({
+      ios: { backgroundColor: '#0e3ba0'},
+      android: { backgroundColor: '#0e3ba0'}
+    }),
   },
   // headerLeft: (
   //   <TouchableOpacity onPress={ () => navigation.goBack(null)}>

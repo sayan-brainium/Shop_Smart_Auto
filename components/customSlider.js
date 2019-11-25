@@ -10,6 +10,11 @@ export default () => {
            <View style={style.progressBar}></View>
          </View>
         </View>
+        <View style={{position:'absolute',top:-3,left:'38%'}}>
+        <View style={style.outercircle}>
+        <View style={style.innercircle}></View>
+        </View>
+        </View>
       </View>
     )
 }
@@ -28,9 +33,23 @@ const style = StyleSheet.create({
     backgroundColor: '#f9f8f6'
   },
   progressBar: {
-    width: '25%',
+    width: '38%',
     backgroundColor: '#64ca42',
     height: 6,
     borderRadius: 10
+  },
+  outercircle:{
+    justifyContent:'center',
+    backgroundColor:'#ffffff',
+    width:22,
+    height:22,
+    borderRadius:11
+  },
+  innercircle:{
+    alignSelf:'center',
+    backgroundColor:'#64ca42',
+    width:14,
+    height:14,
+    borderRadius:7
   }
 })

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, TextInput, ImageBackground, StyleSheet, Text, TouchableOpacity, StatusBar, View } from 'react-native';
+import { ScrollView, TextInput, ImageBackground, StyleSheet, Text, TouchableOpacity, StatusBar, View ,Platform} from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Icon from 'react-native-vector-icons/Ionicons';
 // import { TextInput } from 'react-native-gesture-handler';
@@ -158,12 +158,22 @@ export default function ScheduleTestDriveScreen(Props) {
 
 ScheduleTestDriveScreen.navigationOptions = ({navigation}) => ({
   headerTitle: (
-    <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Schedule Test Drive</Text>
+  'Schedule Test Drive'
   ),
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
-    marginTop: -25
+    fontSize:'18',
+   fontWeight: 'bold',
+    // marginTop: -10,
+    // height:55  
+    height: Platform.OS === 'android' ? 30 : 55,
+    marginTop: Platform.OS === 'ios' ? -10 : 0,
+    paddingBottom: Platform.OS === 'ios' ? 0: 25,
+    ...Platform.select({
+      ios: { backgroundColor: '#0e3ba0'},
+      android: { backgroundColor: '#0e3ba0'}
+    }),
   },
   headerLeft: (
     <TouchableOpacity onPress={ () => navigation.goBack(null)}>
@@ -197,10 +207,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   button: {
-    borderRadius: 50,
+    borderRadius: 25,
     backgroundColor: "#3a786e",
     width: 170,
-    height: 40,
+    height: 50,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: "center",

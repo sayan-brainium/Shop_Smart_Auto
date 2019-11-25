@@ -21,7 +21,7 @@ export default function HeaderSearch(Props) {
   const [searchItem, changesearchItem] = useState('');
  
   return ( 
-    <>
+    <View style={{paddingTop:30}}>
     <View>
     <TextInput
           style={{ height: 40,fontSize:12, paddingLeft:15,borderRadius:20,borderColor:"#b1bacb",borderWidth:1,backgroundColor:'#FCF8F7',marginTop:10,marginBottom:10,marginLeft:20,marginRight:20,alignContent:'center' }}
@@ -35,7 +35,7 @@ export default function HeaderSearch(Props) {
     </View>
     <TouchableOpacity 
       onPress={()=>alert("hello")}
-      style={{position:"absolute",left:"87%",alignItems:"center",justifyContent:"flex-end",top:18}}
+      style={{position:"absolute",left:"87%",alignItems:"center",justifyContent:"flex-end",top:45 }}
       
       >
        <Ionicons
@@ -44,7 +44,7 @@ export default function HeaderSearch(Props) {
          size={25}
       />
     </TouchableOpacity>
-    </>
+    </View>
     );
 }
 

@@ -32,9 +32,9 @@ const HomeStack = createStackNavigator(
     TradeReportScreen,
     HeaderSearch
   },
-  // {
-  //   headerLayoutPreset: 'center',
-  // }
+  {
+    headerLayoutPreset: 'center',
+  }
 );
 
 HomeStack.navigationOptions = {
@@ -73,9 +73,9 @@ const UsedCarStack = createStackNavigator(
     HeaderSearch
     
   },
-  // {
-  //   headerLayoutPreset: 'center',
-  // }
+  {
+    headerLayoutPreset: 'center',
+  }
 );
 
 UsedCarStack.navigationOptions = {
@@ -110,9 +110,9 @@ const NewCarStack = createStackNavigator(
     HeaderSearch
     
   },
-  // {
-  //   headerLayoutPreset: 'center',
-  // }
+  {
+    headerLayoutPreset: 'center',
+  }
 );
 
 NewCarStack.navigationOptions = {
@@ -141,9 +141,9 @@ const AutoLoanStack = createStackNavigator(
     Settings: PaymentCalculator,
     HeaderSearch
   },
-  // {
-  //   headerLayoutPreset: 'center',
-  // }
+  {
+    headerLayoutPreset: 'center',
+  }
 );
 
 AutoLoanStack.navigationOptions = {
@@ -176,9 +176,9 @@ const DetailsStack = createStackNavigator(
 
     
   },
-  // {
-  //   headerLayoutPreset: 'center',
-  // }
+  {
+    headerLayoutPreset: 'center',
+  }
 );
 
 DetailsStack.navigationOptions = {
@@ -208,9 +208,9 @@ const OfferStack = createStackNavigator(
     HeaderSearch
 
   },
-  // {
-  //   headerLayoutPreset: 'center',
-  // }
+  {
+    headerLayoutPreset: 'center',
+  }
 );
 
 OfferStack.navigationOptions = {

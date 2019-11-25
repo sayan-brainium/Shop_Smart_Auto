@@ -7,8 +7,9 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  View
-} from 'react-native';
+  View,
+  Platform
+} from 'react-native';   
 import Icon from 'react-native-vector-icons/Ionicons';
 import Carousel from 'react-native-snap-carousel';
 import CarDetailsImageSlider from "../components/imageSliderCarDetails"
@@ -147,7 +148,7 @@ export default function CarDetailsScreen(Props) {
           shouldPlay
           isLooping
           ref={this._handleVideoRef}
-          style={{ width: "100%", height: 150,borderRadius:10}}
+          style={{ width: "100%", height: 150}}
         />
         <View style={{flexDirection:'row',position:'relative',marginTop:-30,marginLeft:30}}>
         <TouchableOpacity style={{alignSelf:'center'}}>
@@ -222,7 +223,7 @@ export default function CarDetailsScreen(Props) {
               <Text style={{ color: '#fff', fontSize: 12, textAlign: 'justify' }}>Window Sticker</Text>
             </View>
           </LinearGradient>
-        </TouchableOpacity>
+        </TouchableOpacity>  
       </View>
 
       <Text style={{ color: '#383838', marginLeft: 15, fontWeight: 'bold', fontSize: 14, marginBottom: 20 }}>Payment Calculator</Text>
@@ -280,12 +281,22 @@ export default function CarDetailsScreen(Props) {
 //For Header Section Only
 CarDetailsScreen.navigationOptions = ({navigation}) =>({
   headerTitle: (
-    <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Car Details</Text>
+'Car Details'
   ),
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
-    marginTop: -25
+    fontSize:'18',
+   fontWeight: 'bold',
+    // marginTop: -10,
+    // height:56
+    height: Platform.OS === 'android' ? 30 : 55,
+    marginTop: Platform.OS === 'ios' ? -10 : 0,
+    paddingBottom: Platform.OS === 'ios' ? 0: 25,
+    ...Platform.select({
+      ios: { backgroundColor: '#0e3ba0'},
+      android: { backgroundColor: '#0e3ba0'}
+    }),
   },
   headerLeft: (
     <TouchableOpacity  onPress={ () => navigation.goBack(null)}>
@@ -318,6 +329,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    marginTop:10
   },
   button: {
     borderRadius: 5,

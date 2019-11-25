@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, TextInput, StyleSheet, Image, Text, TouchableOpacity, StatusBar, View } from 'react-native';
+import { ScrollView, TextInput, StyleSheet, Image, Text, TouchableOpacity, StatusBar, View,Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -92,12 +92,22 @@ export default function TradeReportScreen() {
 
 TradeReportScreen.navigationOptions = ({ navigation }) => ({
   headerTitle: (
-    <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>Trade Report</Text>
+    'Trade Report'
   ),
   headerTintColor: '#fff',
   headerStyle: {
     backgroundColor: '#0e3ba0',
-    marginTop: -25
+    fontSize:'18',
+   fontWeight: 'bold',
+    // marginTop:-10,
+    // height:55
+    height: Platform.OS === 'android' ? 30 : 55,
+    marginTop: Platform.OS === 'ios' ? -10 : 0,
+    paddingBottom: Platform.OS === 'ios' ? 0: 25,
+    ...Platform.select({
+      ios: { backgroundColor: '#0e3ba0'},
+      android: { backgroundColor: '#0e3ba0'}
+    }),
   },
   headerLeft: (
     <TouchableOpacity>
@@ -132,10 +142,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   button: {
-    borderRadius: 50,
+    borderRadius: 25,
     backgroundColor: "#3a786e",
     width: 220,
-    height: 40,
+    height: 50,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: "center",
@@ -147,10 +157,10 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button1: {
-    borderRadius: 50,
+    borderRadius: 25,
     backgroundColor: "#3a786e",
     width: 220,
-    height: 40,
+    height: 50,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: "center",

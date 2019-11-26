@@ -60,8 +60,10 @@ import { StyleSheet, Image,View,Text } from 'react-native';
 class CustomMarker extends React.Component {
   render() {
     return (
+      <View>
       <View style={styles.Container}>
-         <View style={styles.subContainer}/>
+         <View style={styles.subContainer}></View>
+      </View>
       </View>
     );
   }

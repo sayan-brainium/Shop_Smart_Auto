@@ -17,70 +17,53 @@ export default function PaymentCalculator() {
   const [sliderThreeValue, setSliderThreeValue] = useState([0]);
   const [sliderFourValue, setSliderFourValue] = useState([0]);
 
-  sliderOneValuesChangeStart = () => {
+ const sliderOneValuesChangeStart = () => {
     setSliderOneChanging(true);
   };
 
-  sliderTwoValuesChangeStart = () => {
+ const sliderTwoValuesChangeStart = () => {
     setSliderTwoChanging(true);
   };
 
-  sliderThreeValuesChangeStart = () => {
+ const sliderThreeValuesChangeStart = () => {
       setSliderThreeChanging(true);
   };
-  sliderFourValuesChangeStart = () => {
+ const sliderFourValuesChangeStart = () => {
     setSliderFourChanging(true);
 };
 
-  sliderOneValuesChange = values => {
-    console.log("hellotune:", values)
-    let newValues = [0];
-    newValues[0] = values[0];
-    setSliderOneValue({
-      sliderOneValue: newValues,
-    });
+
+ const sliderOneValuesChange = values => {
+    setSliderOneValue(values);
   };
 
-  sliderTwoValuesChange = values => {
-    let newValues = [0];
-    newValues[0] = values[0];
-    setSliderTwoValue({
-      sliderTwoValue: newValues,
-    });
+  const sliderTwoValuesChange = values => {
+    setSliderTwoValue(values);
   };
 
-  sliderThreeValuesChange = values => {
-    let newValues = [0];
-    newValues[0] = values[0];
-    setSliderThreeValue({
-      sliderThreeValue: newValues,
-    });
+  const sliderThreeValuesChange = values => {
+    setSliderThreeValue(values);
   };
-  sliderFourValuesChange = values => {
-    let newValues = [0];
-    newValues[0] = values[0];
-    setSliderFourValue({
-      sliderFourValue: newValues,
-    });
+  const sliderFourValuesChange = values => {
+    setSliderFourValue(values);
   };
 
-  sliderOneValuesChangeFinish = () => {
+  const sliderOneValuesChangeFinish = () => {
     setSliderOneChanging(false);
   };
 
-  sliderTwoValuesChangeFinish = () => {
+  const sliderTwoValuesChangeFinish = () => {
     setSliderTwoChanging(false);
   };
 
-  sliderThreeValuesChangeFinish = () => {
+  const sliderThreeValuesChangeFinish = () => {
     setSliderThreeChanging(false);
   };
-  sliderFourValuesChangeFinish = () => {
+  const sliderFourValuesChangeFinish = () => {
     setSliderFourChanging(false);
   };
   return (
     <>
-
       <ScrollView style={styles.container}>
 
         <View style={{ marginHorizontal: 40, marginBottom: 20, marginTop: 30 }}>
@@ -199,21 +182,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
-  },
-  sliders: {
-    margin: 10,
-    width: 280,
-  },
-  text: {
-    alignSelf: 'center',
-    paddingVertical: 20,
-  },
-  title: {
-    fontSize: 30,
-  },
-  sliderOne: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
+  }
 
 });
